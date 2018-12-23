@@ -1,0 +1,44 @@
+﻿<Window x:Class="Good_Luck.newGroup"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Good_Luck"
+        xmlns:con="clr-namespace:Good_Luck.Converters"
+        mc:Ignorable="d"
+        Title="newGroup" Height="300" Width="403.247">
+
+    <Grid>
+        <Grid.Resources>
+            <con:ListToBoolConverter x:Key="ListToBoolConverter"></con:ListToBoolConverter>
+        </Grid.Resources>
+        <DataGrid Name="dg1" AutoGenerateColumns="False" CellEditEnding="dg1_CellEditEnding" SelectionChanged="colorBK" Margin="0,0,-0.4,101.4">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Rectangle Fill="{Binding leader, ConverterParameter={Binding studentId}}" 
+                                       Visibility="{Binding studentsInGroup, Converter={StaticResource ListToBoolConverter} ,ConverterParameter= StudentId}">
+                            </Rectangle>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding StudentId}" Header="StudentId" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding FirstName}" Header="FirstName" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding LastName}" Header="LastName" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Class}" Header="Class" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding LeaderId}" Header="Leader" Width="50"></DataGridTextColumn>
+
+            </DataGrid.Columns>
+            <DataGrid.ContextMenu>
+                <ContextMenu>
+                    <MenuItem Header="בחר כראש קבוצה" Click="MenuItem_Click"/>
+                </ContextMenu>
+            </DataGrid.ContextMenu>
+        </DataGrid>
+        <ComboBox x:Name="cmbClasses" Margin="131,185,0,48.4" HorizontalAlignment="Left" Width="110" SelectionChanged="cmbClasses_SelectionChanged"></ComboBox>
+
+    </Grid>
+
+</Window>

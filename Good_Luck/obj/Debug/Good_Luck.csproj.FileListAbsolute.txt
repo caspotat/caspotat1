@@ -1,0 +1,75 @@
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\bin\Debug\Good_Luck.exe.config
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\bin\Debug\Good_Luck.exe
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\bin\Debug\Good_Luck.pdb
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\bin\Debug\EntityFramework.dll
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\bin\Debug\EntityFramework.xml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck.csprojResolveAssemblyReference.cache
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\MainWindow.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\App.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck_Content.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck_MarkupCompile.cache
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck_MarkupCompile.lref
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Dictionary1.baml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\MainWindow.baml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck.g.resources
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck.Properties.Resources.resources
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck.csproj.GenerateResource.Cache
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck.csproj.CoreCompileInputs.cache
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck.exe
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Good_Luck.pdb
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Donation2.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Donation2.baml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Donors2.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Donors2.baml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Students.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Students.baml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Groups.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\Groups.baml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\newStudent.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\NewDonor.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\NewDonations.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\NewDonations.baml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\NewDonor.baml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\newStudent.baml
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\newGroup.g.cs
+C:\Users\מלכי ג'דה\Desktop\תיכנות\פרויקט גמר\Good_Luck\Good_Luck\obj\Debug\newGroup.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\Good_Luck.exe.config
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\Good_Luck.exe
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\Good_Luck.pdb
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\EntityFramework.dll
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\EntityFramework.xml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.csprojResolveAssemblyReference.cache
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Donation2.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\NewDonations.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\NewDonor.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Donors2.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Groups.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\MainWindow.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\newGroup.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\newStudent.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Students.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\App.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck_Content.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck_MarkupCompile.cache
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck_MarkupCompile.lref
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Dictionary1.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Donation2.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\NewDonations.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\NewDonor.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Donors2.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Groups.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\MainWindow.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\newGroup.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\newStudent.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Students.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.g.resources
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.Properties.Resources.resources
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.csproj.GenerateResource.Cache
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.csproj.CoreCompileInputs.cache
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.exe
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.pdb
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\GeneratedInternalTypeHelper.g.cs

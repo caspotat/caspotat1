@@ -1,0 +1,43 @@
+﻿<Window x:Class="Good_Luck.newAndUpdateStudent"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Good_Luck"
+        mc:Ignorable="d"
+        Title="newStudent" Height="300" Width="300">
+    <Grid >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+          
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="0.3*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock HorizontalAlignment="Right" FontSize="14" Grid.Row="1" Grid.Column="1"><Run Text="שם פרטי "/></TextBlock>
+        <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="1" Grid.Column="0" x:Name="namep" Text="{Binding Path=FirstName}"/>
+        <TextBlock  HorizontalAlignment="Right" FontSize="14" Grid.Row="2" Grid.Column="1"><Run Text="שם משפחה"/></TextBlock>
+        <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="2" Grid.Column="0" x:Name="lastn" Text="{Binding Path=LastName}"/>
+        <TextBlock  HorizontalAlignment="Right" FontSize="14" Grid.Row="3" Grid.Column="1"><Run Text="טלפון"/></TextBlock>
+        <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="3" Grid.Column="0" x:Name="phone" Text="{Binding Path=Phone}"/>
+        <TextBlock  HorizontalAlignment="Right" FontSize="14" Grid.Row="4" Grid.Column="1"><Run Text="ועד"/></TextBlock>
+        <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="4" Grid.Column="0" x:Name="Class" Text="{Binding Path=Class}"/>
+        <TextBlock HorizontalAlignment="Right" FontSize="14" Grid.Row="5" Grid.Column="1"><Run Text="ראש קבוצה"/></TextBlock>
+        <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="5" Grid.Column="0" x:Name="leaderId" Text="{Binding Path=leaderId
+            }"/>
+
+        <TextBlock Grid.Column="2" Grid.Row="1" FontSize="24" Foreground="red">*</TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="2" FontSize="24" Foreground="red">*</TextBlock>
+        <TextBlock Grid.Column="2" Grid.Row="5" FontSize="24" Foreground="red">*</TextBlock>
+        <Button FontSize="18" Grid.Row="9" Click="ok_Click">אשור</Button>
+    </Grid>
+
+</Window>
