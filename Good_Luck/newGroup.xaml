@@ -12,13 +12,22 @@
         <Grid.Resources>
             <con:ListToBoolConverter x:Key="ListToBoolConverter"></con:ListToBoolConverter>
         </Grid.Resources>
-        <DataGrid Name="dg1" AutoGenerateColumns="False" CellEditEnding="dg1_CellEditEnding" SelectionChanged="colorBK" Margin="0,0,-0.4,101.4">
+        <!--ConverterParameter= {Binding StudentId}-->
+        <DataGrid Name="dg1" AutoGenerateColumns="False" CellEditEnding="dg1_CellEditEnding" SelectionChanged="colorBK" >
             <DataGrid.Columns>
-                <DataGridTemplateColumn >
+                <DataGridTemplateColumn x:Name="col">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <Rectangle Fill="{Binding leader, ConverterParameter={Binding studentId}}" 
-                                       Visibility="{Binding studentsInGroup, Converter={StaticResource ListToBoolConverter} ,ConverterParameter= StudentId}">
+                            <Rectangle x:Name="rec" Fill= "Red">
+                                <!--"{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window }, Path=Leader, ConverterParameter=17}" >-->
+
+                                <Rectangle.Visibility>
+                                    <MultiBinding Converter="{StaticResource ListToBoolConverter}">
+                                        <Binding ElementName="dg1" Path="DataContext"></Binding>
+                                        <Binding ElementName="dg1" Path="DataContext.Count"></Binding>
+                                        <Binding ElementName="dg1" Path="SelectedItem"></Binding>
+                                    </MultiBinding>
+                                </Rectangle.Visibility>
                             </Rectangle>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>

@@ -18,6 +18,12 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+           
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
@@ -40,12 +46,22 @@
         <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="7" Grid.Column="0" x:Name="comments" Text="{Binding Path=Comments}"/>
         <TextBlock  HorizontalAlignment="Right" FontSize="14" Grid.Row="8" Grid.Column="1"><Run Text="זמן איסוף"/></TextBlock>
         <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="8" Grid.Column="0" x:Name="collectime" Text="{Binding Path=CollectTime}"/>
+        <TextBlock  HorizontalAlignment="Right" FontSize="14" Grid.Row="9" Grid.Column="1"><Run Text="x     "/></TextBlock>
+        <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="9" Grid.Column="0" x:Name="x" Text="{Binding Path=x}"/>
+        <TextBlock  HorizontalAlignment="Right" FontSize="14" Grid.Row="10" Grid.Column="1"><Run Text="Y     "/></TextBlock>
+        <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="10" Grid.Column="0" x:Name="y" Text="{Binding Path=y}"/>
+        <TextBlock  HorizontalAlignment="Right" FontSize="14" Grid.Row="11" Grid.Column="1"><Run Text="עיר"/></TextBlock>
+        <ComboBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="11" Grid.Column="0" SelectionChanged="City_SelectionChanged" x:Name="City" Text="{Binding Path=y}"/>
+        <TextBlock  HorizontalAlignment="Right" FontSize="14" Grid.Row="12" Grid.Column="1"><Run Text="רחוב"/></TextBlock>
+        <ComboBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="12" Grid.Column="0" x:Name="Street" IsEnabled="False" Text="{Binding Path=y}"/>
+        <TextBlock  HorizontalAlignment="Right" FontSize="14" Grid.Row="13" Grid.Column="1"><Run Text="מספר בנין"/></TextBlock>
+        <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="13" Grid.Column="0" x:Name="misBuilding" Text="{Binding Path=y}"/>
         <TextBlock Grid.Column="2" Grid.Row="1" FontSize="24" Foreground="red">*</TextBlock>
         <TextBlock Grid.Column="2" Grid.Row="2" FontSize="24" Foreground="red">*</TextBlock>
         <TextBlock Grid.Column="2" Grid.Row="3" FontSize="24" Foreground="red">*</TextBlock>
         <TextBlock Grid.Column="2" Grid.Row="4" FontSize="24" Foreground="red">*</TextBlock>
         <TextBlock Grid.Column="2" Grid.Row="5" FontSize="24" Foreground="red">*</TextBlock>
         <TextBlock Grid.Column="2" Grid.Row="8" FontSize="24" Foreground="red">*</TextBlock>
-        <Button FontSize="18" Grid.Row="9" Click="ok_Click">אשור</Button>
+        <Button FontSize="18" Grid.Row="14" Click="ok_Click">אשור</Button>
     </Grid>
 </Window>

@@ -10,19 +10,11 @@
             <PropertyRef Name="AdressId" />
           </Key>
           <Property Name="AdressId" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="City" Type="numeric" Precision="18" Scale="0" />
-          <Property Name="Area" Type="nvarchar" MaxLength="50" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
           <Property Name="Street" Type="nvarchar" MaxLength="50" />
           <Property Name="NumBuilding" Type="smallint" />
-          <Property Name="Entrance" Type="nchar" MaxLength="10" />
-          <Property Name="Floor" Type="smallint" />
-        </EntityType>
-        <EntityType Name="Cities">
-          <Key>
-            <PropertyRef Name="CityId" />
-          </Key>
-          <Property Name="CityId" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="CityName" Type="nvarchar" MaxLength="50" />
+          <Property Name="X" Type="float" />
+          <Property Name="Y" Type="float" />
         </EntityType>
         <EntityType Name="Contacts">
           <Key>
@@ -76,18 +68,6 @@
           <Property Name="Class" Type="nvarchar" MaxLength="50" />
           <Property Name="LeaderId" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
-        <Association Name="FK_Adress_Cities">
-          <End Role="Cities" Type="Self.Cities" Multiplicity="0..1" />
-          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cities">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="Adress">
-              <PropertyRef Name="City" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Contacts_Donors">
           <End Role="Donors" Type="Self.Donors" Multiplicity="1" />
           <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
@@ -162,16 +142,11 @@
         </Association>
         <EntityContainer Name="newCaspotatdb3ModelStoreContainer">
           <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Contacts" EntityType="Self.Contacts" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donations" EntityType="Self.Donations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donors" EntityType="Self.Donors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Adress_Cities" Association="Self.FK_Adress_Cities">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Adress" EntitySet="Adress" />
-          </AssociationSet>
           <AssociationSet Name="FK_Contacts_Donors" Association="Self.FK_Contacts_Donors">
             <End Role="Donors" EntitySet="Donors" />
             <End Role="Contacts" EntitySet="Contacts" />
@@ -207,22 +182,12 @@
             <PropertyRef Name="AdressId" />
           </Key>
           <Property Name="AdressId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="City" Type="Decimal" Precision="18" Scale="0" />
-          <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="NumBuilding" Type="Int16" />
-          <Property Name="Entrance" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Floor" Type="Int16" />
-          <NavigationProperty Name="City1" Relationship="Self.FK_Adress_Cities" FromRole="Adress" ToRole="Cities" />
+          <Property Name="X" Type="Double" />
+          <Property Name="Y" Type="Double" />
           <NavigationProperty Name="Donors" Relationship="Self.foradress" FromRole="Adress" ToRole="Donors" />
-        </EntityType>
-        <EntityType Name="City">
-          <Key>
-            <PropertyRef Name="CityId" />
-          </Key>
-          <Property Name="CityId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Adresses" Relationship="Self.FK_Adress_Cities" FromRole="Cities" ToRole="Adress" />
         </EntityType>
         <EntityType Name="Contact">
           <Key>
@@ -287,18 +252,6 @@
           <NavigationProperty Name="Students1" Relationship="Self.FK_Students_Students" FromRole="Students" ToRole="Students1" />
           <NavigationProperty Name="Student1" Relationship="Self.FK_Students_Students" FromRole="Students1" ToRole="Students" />
         </EntityType>
-        <Association Name="FK_Adress_Cities">
-          <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
-          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Cities">
-              <PropertyRef Name="CityId" />
-            </Principal>
-            <Dependent Role="Adress">
-              <PropertyRef Name="City" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="foradress">
           <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
           <End Role="Donors" Type="Self.Donor" Multiplicity="*" />
@@ -371,18 +324,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="newCaspotatdb3Entities5" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="newCaspotatdb3Entities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adresses" EntityType="Self.Adress" />
-          <EntitySet Name="Cities" EntityType="Self.City" />
           <EntitySet Name="Contacts" EntityType="Self.Contact" />
           <EntitySet Name="Donations" EntityType="Self.Donation" />
           <EntitySet Name="Donors" EntityType="Self.Donor" />
           <EntitySet Name="Groups" EntityType="Self.Group" />
           <EntitySet Name="Students" EntityType="Self.Student" />
-          <AssociationSet Name="FK_Adress_Cities" Association="Self.FK_Adress_Cities">
-            <End Role="Cities" EntitySet="Cities" />
-            <End Role="Adress" EntitySet="Adresses" />
-          </AssociationSet>
           <AssociationSet Name="foradress" Association="Self.foradress">
             <End Role="Adress" EntitySet="Adresses" />
             <End Role="Donors" EntitySet="Donors" />
@@ -413,25 +361,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="newCaspotatdb3ModelStoreContainer" CdmEntityContainer="newCaspotatdb3Entities5">
+        <EntityContainerMapping StorageEntityContainer="newCaspotatdb3ModelStoreContainer" CdmEntityContainer="newCaspotatdb3Entities2">
           <EntitySetMapping Name="Adresses">
             <EntityTypeMapping TypeName="newCaspotatdb3Model.Adress">
               <MappingFragment StoreEntitySet="Adress">
                 <ScalarProperty Name="AdressId" ColumnName="AdressId" />
                 <ScalarProperty Name="City" ColumnName="City" />
-                <ScalarProperty Name="Area" ColumnName="Area" />
                 <ScalarProperty Name="Street" ColumnName="Street" />
                 <ScalarProperty Name="NumBuilding" ColumnName="NumBuilding" />
-                <ScalarProperty Name="Entrance" ColumnName="Entrance" />
-                <ScalarProperty Name="Floor" ColumnName="Floor" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Cities">
-            <EntityTypeMapping TypeName="newCaspotatdb3Model.City">
-              <MappingFragment StoreEntitySet="Cities">
-                <ScalarProperty Name="CityId" ColumnName="CityId" />
-                <ScalarProperty Name="CityName" ColumnName="CityName" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="Y" ColumnName="Y" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -20,14 +20,31 @@ namespace Good_Luck
     /// </summary>
     public partial class newGroup : Window
     {
-        newCaspotatdb3Entities5 db = new newCaspotatdb3Entities5();
+
+        newCaspotatdb3Entities2 db = new newCaspotatdb3Entities2();
         ObservableCollection<Student> studentsInGroup = new ObservableCollection<Student>();
         int leader;
+
+
+        public int Leader
+        {
+            get { return (int)GetValue(LeaderProperty); }
+            set { SetValue(LeaderProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for Leader.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty LeaderProperty =
+            DependencyProperty.Register("Leader", typeof(int), typeof(newGroup), new PropertyMetadata(0));
+
+
+        
+
         public newGroup()
         {
             InitializeComponent();
             cmbClasses.ItemsSource = new List<string>() { "א","ב","ג"};
             loadgrid();
+           
         }
         private void loadgrid()
         {
@@ -38,7 +55,7 @@ namespace Good_Luck
         }
         private void colorBK(object sender, SelectionChangedEventArgs e)
         {
-            studentsInGroup.Add((e.Source as DataGrid).CurrentItem as Student);
+            studentsInGroup.Add((e.Source as DataGrid).SelectedItem as Student);
         }
 
         private void dg1_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
@@ -58,7 +75,7 @@ namespace Good_Luck
 
         private void MenuItem_Click(object sender, RoutedEventArgs e)
         {
-            leader = int.Parse((dg1.SelectedItem as Student).StudentId.ToString());
+            Leader = int.Parse((dg1.SelectedItem as Student).StudentId.ToString());
         }
     }
 }
