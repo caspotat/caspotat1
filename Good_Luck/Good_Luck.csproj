@@ -67,6 +67,9 @@
     <Compile Include="Adress.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="CalcRoute.xaml.cs">
+      <DependentUpon>CalcRoute.xaml</DependentUpon>
+    </Compile>
     <Compile Include="caspotatdb.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -82,14 +85,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>caspotatdb.edmx</DependentUpon>
     </Compile>
-    <Compile Include="City.cs">
-      <DependentUpon>caspotatdb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Contact.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Converters\ListToBoolConverter.cs" />
     <Compile Include="Converters\StudentToColor.cs" />
+    <Compile Include="Distance.cs" />
     <Compile Include="Donation.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
@@ -97,6 +98,9 @@
       <DependentUpon>Donation2.xaml</DependentUpon>
     </Compile>
     <Compile Include="Donor.cs">
+      <DependentUpon>caspotatdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Group.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
     <Compile Include="NewDonations.xaml.cs">
@@ -108,9 +112,6 @@
     <Compile Include="Donors2.xaml.cs">
       <DependentUpon>Donors2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Group.cs">
-      <DependentUpon>caspotatdb.tt</DependentUpon>
-    </Compile>
     <Compile Include="Groups.xaml.cs">
       <DependentUpon>Groups.xaml</DependentUpon>
     </Compile>
@@ -120,12 +121,17 @@
     <Compile Include="newStudent.xaml.cs">
       <DependentUpon>newStudent.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PointAddress.cs" />
     <Compile Include="Student.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Students.xaml.cs">
       <DependentUpon>Students.xaml</DependentUpon>
     </Compile>
+    <Page Include="CalcRoute.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Dictionary1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

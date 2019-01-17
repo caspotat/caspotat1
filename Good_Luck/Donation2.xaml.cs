@@ -24,7 +24,7 @@ namespace Good_Luck
     /// </summary>
     public partial class Donation2 : Window
     {
-        newCaspotatdb3Entities5 db = new newCaspotatdb3Entities5();
+        newCaspotatdb3Entities2 db = new newCaspotatdb3Entities2();
         public Donation2()
         {
             InitializeComponent();

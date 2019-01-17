@@ -22,7 +22,7 @@ namespace Good_Luck
     /// </summary>
     public partial class Students : Window
     {
-        newCaspotatdb3Entities5 db = new newCaspotatdb3Entities5();
+        newCaspotatdb3Entities2 db = new newCaspotatdb3Entities2();
         public Students()
         {
             InitializeComponent();

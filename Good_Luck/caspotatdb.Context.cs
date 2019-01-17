@@ -13,10 +13,10 @@ namespace Good_Luck
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class newCaspotatdb3Entities5 : DbContext
+    public partial class newCaspotatdb3Entities2 : DbContext
     {
-        public newCaspotatdb3Entities5()
-            : base("name=newCaspotatdb3Entities5")
+        public newCaspotatdb3Entities2()
+            : base("name=newCaspotatdb3Entities2")
         {
         }
     
@@ -26,7 +26,6 @@ namespace Good_Luck
         }
     
         public virtual DbSet<Adress> Adresses { get; set; }
-        public virtual DbSet<City> Cities { get; set; }
         public virtual DbSet<Contact> Contacts { get; set; }
         public virtual DbSet<Donation> Donations { get; set; }
         public virtual DbSet<Donor> Donors { get; set; }

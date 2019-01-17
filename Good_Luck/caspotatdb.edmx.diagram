@@ -4,15 +4,13 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7d63e4977dbe4156b81b379b5b36f89f" Name="Diagram1">
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Adress" Width="1.5" PointX="3" PointY="1.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.City" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Contact" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Donation" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Donor" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Group" Width="1.5" PointX="3.125" PointY="5.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Student" Width="1.5" PointX="0.75" PointY="4.875" IsExpanded="true" />
-        <AssociationConnector Association="newCaspotatdb3Model.FK_Adress_Cities" ManuallyRouted="false" />
+      <Diagram DiagramId="22866b6a50c34154a279473607fbe6f2" Name="Diagram1">
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Adress" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Contact" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Donation" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Donor" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Group" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Student" Width="1.5" PointX="1.5" PointY="10.875" IsExpanded="true" />
         <AssociationConnector Association="newCaspotatdb3Model.foradress" ManuallyRouted="false" />
         <AssociationConnector Association="newCaspotatdb3Model.FK_Contacts_Donors" ManuallyRouted="false" />
         <AssociationConnector Association="newCaspotatdb3Model.FK_Donations_Donors" ManuallyRouted="false" />

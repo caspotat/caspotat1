@@ -59,5 +59,17 @@ namespace Good_Luck
             Groups g = new Groups();
             g.Show();
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            PointAddress p1 = Distance.PointFromAddress("בני ברק", "בר אילן", 28);
+            PointAddress p2 = Distance.PointFromAddress("בני ברק", "בר אילן", 18);
+            MessageBox.Show(Distance.distanceFromPoints(p1, p2).ToString());
+        }
+
+        private void Button_Click_2(object sender, RoutedEventArgs e)
+        {
+            CalcRoute c = new CalcRoute();
+        }
     }
 }

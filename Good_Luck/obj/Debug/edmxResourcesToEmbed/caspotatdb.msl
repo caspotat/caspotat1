@@ -1,24 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-  <EntityContainerMapping StorageEntityContainer="newCaspotatdb3ModelStoreContainer" CdmEntityContainer="newCaspotatdb3Entities5">
+  <EntityContainerMapping StorageEntityContainer="newCaspotatdb3ModelStoreContainer" CdmEntityContainer="newCaspotatdb3Entities2">
     <EntitySetMapping Name="Adresses">
       <EntityTypeMapping TypeName="newCaspotatdb3Model.Adress">
         <MappingFragment StoreEntitySet="Adress">
           <ScalarProperty Name="AdressId" ColumnName="AdressId" />
           <ScalarProperty Name="City" ColumnName="City" />
-          <ScalarProperty Name="Area" ColumnName="Area" />
           <ScalarProperty Name="Street" ColumnName="Street" />
           <ScalarProperty Name="NumBuilding" ColumnName="NumBuilding" />
-          <ScalarProperty Name="Entrance" ColumnName="Entrance" />
-          <ScalarProperty Name="Floor" ColumnName="Floor" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="Cities">
-      <EntityTypeMapping TypeName="newCaspotatdb3Model.City">
-        <MappingFragment StoreEntitySet="Cities">
-          <ScalarProperty Name="CityId" ColumnName="CityId" />
-          <ScalarProperty Name="CityName" ColumnName="CityName" />
+          <ScalarProperty Name="X" ColumnName="X" />
+          <ScalarProperty Name="Y" ColumnName="Y" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

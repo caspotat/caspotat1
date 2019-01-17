@@ -42,7 +42,6 @@ C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\EntityFramework.
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\EntityFramework.SqlServer.dll
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\EntityFramework.xml
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.csprojResolveAssemblyReference.cache
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Donation2.g.cs
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\NewDonations.g.cs
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\NewDonor.g.cs
@@ -73,3 +72,6 @@ C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.csproj
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.exe
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.pdb
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\CalcRoute.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\CalcRoute.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Good_Luck.csprojResolveAssemblyReference.cache

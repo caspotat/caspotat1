@@ -21,14 +21,12 @@ namespace Good_Luck
         }
     
         public decimal AdressId { get; set; }
-        public Nullable<decimal> City { get; set; }
-        public string Area { get; set; }
+        public string City { get; set; }
         public string Street { get; set; }
         public Nullable<short> NumBuilding { get; set; }
-        public string Entrance { get; set; }
-        public Nullable<short> Floor { get; set; }
+        public Nullable<double> X { get; set; }
+        public Nullable<double> Y { get; set; }
     
-        public virtual City City1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Donor> Donors { get; set; }
     }

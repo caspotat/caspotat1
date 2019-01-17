@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,13 +20,29 @@ namespace Good_Luck
     /// </summary>
     public partial class NewDonor : Window
     {
-        newCaspotatdb3Entities5 db = new newCaspotatdb3Entities5();
+        DataTable dt;
+        newCaspotatdb3Entities2 db = new newCaspotatdb3Entities2();
         public NewDonor()
         {
             this.DataContext = db;
+            
             InitializeComponent();
+            getCitiesAndStreets();
         }
+        public void getCitiesAndStreets()
+        {
+            DataSet dataSet = new DataSet();
 
+            dataSet.ReadXml(@"C:\Users\מלכי ג'דה\Desktop\tryxml\City.xml");
+            
+            dt = dataSet.Tables[0];
+            foreach (DataRow row in dt.Rows)
+            {
+                City.Items.Add(row[2]);
+            }
+            
+
+        }
         private void ok_Click(object sender, RoutedEventArgs e)
         {
             Donor d = new Donor();
@@ -40,9 +57,17 @@ namespace Good_Luck
                 d.Level = short.Parse(this.level.Text);
                 d.LastDonation = int.Parse(this.lastdo.Text);
                 d.Comments = this.comments.Text;
+                Adress a = new Adress();
+                a.City = this.City.SelectedItem.ToString();
+                a.Street = this.Street.SelectedItem.ToString();
+                a.NumBuilding = short.Parse(this.misBuilding.Text);
+                a.X = float.Parse(this.x.Text);
+                a.Y = float.Parse(this.y.Text);
+
                 //d.CollectTime = this.collectime.Text;
                 try
                 {
+                    db.Adresses.Add(a);
                     db.Donors.Add(d);
                     db.SaveChanges();
                     MessageBox.Show("the data saved");
@@ -52,6 +77,20 @@ namespace Good_Luck
                     MessageBox.Show(ex.ToString(), "warning");
                 }
                 this.Close();
+            }
+        }
+
+        private void City_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Street.Items.Clear();
+            Street.IsEnabled = true;
+            DataSet dataSet2 = new DataSet();
+            dataSet2.ReadXml(@"C:\Users\מלכי ג'דה\Desktop\tryxml\Street.xml");
+            dt = dataSet2.Tables[0];
+            foreach (DataRow row in dt.Rows)
+            {
+                if (row[2].ToString().Contains(City.SelectedItem.ToString()))
+                    Street.Items.Add(row[4]);
             }
         }
     }

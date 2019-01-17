@@ -5,22 +5,12 @@
       <PropertyRef Name="AdressId" />
     </Key>
     <Property Name="AdressId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="City" Type="Decimal" Precision="18" Scale="0" />
-    <Property Name="Area" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="NumBuilding" Type="Int16" />
-    <Property Name="Entrance" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Floor" Type="Int16" />
-    <NavigationProperty Name="City1" Relationship="Self.FK_Adress_Cities" FromRole="Adress" ToRole="Cities" />
+    <Property Name="X" Type="Double" />
+    <Property Name="Y" Type="Double" />
     <NavigationProperty Name="Donors" Relationship="Self.foradress" FromRole="Adress" ToRole="Donors" />
-  </EntityType>
-  <EntityType Name="City">
-    <Key>
-      <PropertyRef Name="CityId" />
-    </Key>
-    <Property Name="CityId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="CityName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Adresses" Relationship="Self.FK_Adress_Cities" FromRole="Cities" ToRole="Adress" />
   </EntityType>
   <EntityType Name="Contact">
     <Key>
@@ -85,18 +75,6 @@
     <NavigationProperty Name="Students1" Relationship="Self.FK_Students_Students" FromRole="Students" ToRole="Students1" />
     <NavigationProperty Name="Student1" Relationship="Self.FK_Students_Students" FromRole="Students1" ToRole="Students" />
   </EntityType>
-  <Association Name="FK_Adress_Cities">
-    <End Role="Cities" Type="Self.City" Multiplicity="0..1" />
-    <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Cities">
-        <PropertyRef Name="CityId" />
-      </Principal>
-      <Dependent Role="Adress">
-        <PropertyRef Name="City" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="foradress">
     <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
     <End Role="Donors" Type="Self.Donor" Multiplicity="*" />
@@ -169,18 +147,13 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="newCaspotatdb3Entities5" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="newCaspotatdb3Entities2" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Adresses" EntityType="Self.Adress" />
-    <EntitySet Name="Cities" EntityType="Self.City" />
     <EntitySet Name="Contacts" EntityType="Self.Contact" />
     <EntitySet Name="Donations" EntityType="Self.Donation" />
     <EntitySet Name="Donors" EntityType="Self.Donor" />
     <EntitySet Name="Groups" EntityType="Self.Group" />
     <EntitySet Name="Students" EntityType="Self.Student" />
-    <AssociationSet Name="FK_Adress_Cities" Association="Self.FK_Adress_Cities">
-      <End Role="Cities" EntitySet="Cities" />
-      <End Role="Adress" EntitySet="Adresses" />
-    </AssociationSet>
     <AssociationSet Name="foradress" Association="Self.foradress">
       <End Role="Adress" EntitySet="Adresses" />
       <End Role="Donors" EntitySet="Donors" />

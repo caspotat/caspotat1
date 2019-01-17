@@ -20,7 +20,7 @@ namespace Good_Luck
     public partial class newAndUpdateStudent : Window
     {
 
-        newCaspotatdb3Entities5 db = new newCaspotatdb3Entities5();
+        newCaspotatdb3Entities2 db = new newCaspotatdb3Entities2();
         public newAndUpdateStudent()
         {
             InitializeComponent();
