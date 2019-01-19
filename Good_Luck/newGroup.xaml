@@ -6,8 +6,14 @@
         xmlns:local="clr-namespace:Good_Luck"
         xmlns:con="clr-namespace:Good_Luck.Converters"
         mc:Ignorable="d"
-        Title="newGroup" Height="300" Width="403.247">
-
+        Title="קבוצה חדשה" Height="300" Width="403.247" Background="#FFE3E9F6" WindowStartupLocation="CenterScreen">
+        <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+       </Window.Resources>
     <Grid>
         <Grid.Resources>
             <con:ListToBoolConverter x:Key="ListToBoolConverter"></con:ListToBoolConverter>
@@ -32,12 +38,12 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                <DataGridTextColumn Binding="{Binding StudentId}" Header="StudentId" Width="70"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding FirstName}" Header="FirstName" Width="70"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding LastName}" Header="LastName" Width="70"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" Width="70"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding Class}" Header="Class" Width="50"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding LeaderId}" Header="Leader" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding StudentId}" Header="קוד בחור" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding FirstName}" Header="שם פרטי" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding LastName}" Header="שם משפחה" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Phone}" Header="פלאפון" Width="70"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Class}" Header="שעור" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding LeaderId}" Header="ראש קבוצה" Width="50"></DataGridTextColumn>
 
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
@@ -46,7 +52,7 @@
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
-        <ComboBox x:Name="cmbClasses" Margin="131,185,0,48.4" HorizontalAlignment="Left" Width="110" SelectionChanged="cmbClasses_SelectionChanged"></ComboBox>
+        <ComboBox x:Name="cmbClasses"  Margin="131,185,0,48.4" HorizontalAlignment="Left" Width="110" SelectionChanged="cmbClasses_SelectionChanged"></ComboBox>
 
     </Grid>
 

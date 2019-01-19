@@ -5,16 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Good_Luck"
         mc:Ignorable="d"
-        Title="Groups" Height="300" Width="300">
+        Title="קבוצות" Height="300" Width="300" FlowDirection="RightToLeft" Background="#FFE3E9F6" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <DataGrid Name="dg1" AutoGenerateColumns="False">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding GroupId}" Header="GroupId" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding StudentId}" Header="StudentId" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding GroupId}" Header="קוד קבוצה" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding StudentId}" Header="ראש קבוצה" Width="100"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
-        <Button Width="73" Height="30" HorizontalAlignment="Right" Margin="0,230,210.6,10.4" Click="Delete_Click">מחיקה</Button>
-        <Button Width="80" Height="30" HorizontalAlignment="Right" Margin="0,230,112.6,10.4" Click="Update_Click">עריכה</Button>
-        <Button Width="74" Height="30" HorizontalAlignment="Right" Margin="0,230,9.6,10.4" Click="New_Click">חדש</Button>
+        <Button Width="73" Style="{StaticResource forButtons}" Height="30" HorizontalAlignment="Right" Margin="0,230,200.6,10.4" Click="Delete_Click">מחיקה</Button>
+        <Button Width="80" Style="{StaticResource forButtons}" Height="30" HorizontalAlignment="Right" Margin="0,230,106.6,10.4" Click="Update_Click">עריכה</Button>
+        <Button Width="74" Style="{StaticResource forButtons}" Height="30" HorizontalAlignment="Right" Margin="0,230,15.6,10.4" Click="New_Click">חדש</Button>
     </Grid>
 </Window>

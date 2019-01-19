@@ -3,9 +3,17 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+       
         xmlns:local="clr-namespace:Good_Luck"
         mc:Ignorable="d"
-        Title="NewDonations" Height="300" Width="300">
+        Title="תרומה חדשה" Height="300" Width="300"  Background="#FFE3E9F6" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -22,6 +30,6 @@
         <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="1" Grid.Column="0" x:Name="donorId" Text="{Binding Path=DonorId}"/>
         <TextBlock HorizontalAlignment="Center" FontSize="14" Grid.Row="2" Grid.Column="1"><Run Text="סכום"/></TextBlock>
         <TextBox FontSize="16" FlowDirection="RightToLeft" Grid.Row="2" Grid.Column="0" x:Name="amount" Text="{Binding Path=Amount}"/>
-        <Button Grid.Row="3" Click="ok_Click">אשור</Button>
+        <Button Grid.Row="3" Style="{StaticResource forButtons}"  Click="ok_Click">אשור</Button>
     </Grid>
 </Window>
