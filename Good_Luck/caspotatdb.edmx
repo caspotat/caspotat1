@@ -1,0 +1,559 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="newCaspotatdb3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="AdressId" />
+          </Key>
+          <Property Name="AdressId" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="50" />
+          <Property Name="Street" Type="nvarchar" MaxLength="50" />
+          <Property Name="NumBuilding" Type="smallint" />
+          <Property Name="X" Type="float" />
+          <Property Name="Y" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Contacts">
+          <Key>
+            <PropertyRef Name="DonorId" />
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="DonorId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StudentId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="KindOfContact" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Donations">
+          <Key>
+            <PropertyRef Name="DoationId" />
+          </Key>
+          <Property Name="DoationId" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DonorId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Amount" Type="money" />
+        </EntityType>
+        <EntityType Name="Donors">
+          <Key>
+            <PropertyRef Name="DonorId" />
+          </Key>
+          <Property Name="DonorId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdressId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Level" Type="smallint" />
+          <Property Name="GroupId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="LastDonation" Type="money" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+          <Property Name="CollectTime" Type="nvarchar" MaxLength="50" />
+          <Property Name="IsActive" Type="nvarchar" MaxLength="50" />
+          <Property Name="StatusDonation" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Groups">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StudentId" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="Kind_Of_Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Priority" Type="smallint" />
+        </EntityType>
+        <EntityType Name="Students">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="numeric" Precision="18" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Class" Type="nvarchar" MaxLength="50" />
+          <Property Name="LeaderId" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="FK_Contacts_Donors">
+          <End Role="Donors" Type="Self.Donors" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donors">
+              <PropertyRef Name="DonorId" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="DonorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_Kind_Of_Contact">
+          <End Role="Kind_Of_Contact" Type="Self.Kind_Of_Contact" Multiplicity="0..1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind_Of_Contact">
+              <PropertyRef Name="ContactId" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="KindOfContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donations_Donors">
+          <End Role="Donors" Type="Self.Donors" Multiplicity="1" />
+          <End Role="Donations" Type="Self.Donations" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donors">
+              <PropertyRef Name="DonorId" />
+            </Principal>
+            <Dependent Role="Donations">
+              <PropertyRef Name="DonorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+          <End Role="Groups" Type="Self.Groups" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Students">
+          <End Role="Students" Type="Self.Students" Multiplicity="0..1" />
+          <End Role="Students1" Type="Self.Students" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Students1">
+              <PropertyRef Name="LeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="foradress">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
+          <End Role="Donors" Type="Self.Donors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="AdressId" />
+            </Principal>
+            <Dependent Role="Donors">
+              <PropertyRef Name="AdressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="forgroup">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Donors" Type="Self.Donors" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="Donors">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="newCaspotatdb3ModelStoreContainer">
+          <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donations" EntityType="Self.Donations" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donors" EntityType="Self.Donors" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kind_Of_Contact" EntityType="Self.Kind_Of_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts" EntityType="Self.Contacts" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Contacts].[DonorId] AS [DonorId], 
+    [Contacts].[StudentId] AS [StudentId], 
+    [Contacts].[KindOfContact] AS [KindOfContact]
+    FROM [dbo].[Contacts] AS [Contacts]</DefiningQuery>
+          </EntitySet>
+          <AssociationSet Name="FK_Contacts_Donors" Association="Self.FK_Contacts_Donors">
+            <End Role="Donors" EntitySet="Donors" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_Kind_Of_Contact" Association="Self.FK_Contacts_Kind_Of_Contact">
+            <End Role="Kind_Of_Contact" EntitySet="Kind_Of_Contact" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_Students" Association="Self.FK_Contacts_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donations_Donors" Association="Self.FK_Donations_Donors">
+            <End Role="Donors" EntitySet="Donors" />
+            <End Role="Donations" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Students" Association="Self.FK_Groups_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Students" Association="Self.FK_Students_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Students1" EntitySet="Students" />
+          </AssociationSet>
+          <AssociationSet Name="foradress" Association="Self.foradress">
+            <End Role="Adress" EntitySet="Adress" />
+            <End Role="Donors" EntitySet="Donors" />
+          </AssociationSet>
+          <AssociationSet Name="forgroup" Association="Self.forgroup">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Donors" EntitySet="Donors" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="newCaspotatdb3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Adress">
+          <Key>
+            <PropertyRef Name="AdressId" />
+          </Key>
+          <Property Name="AdressId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="NumBuilding" Type="Int16" />
+          <Property Name="X" Type="Double" />
+          <Property Name="Y" Type="Double" />
+          <NavigationProperty Name="Donors" Relationship="Self.foradress" FromRole="Adress" ToRole="Donors" />
+        </EntityType>
+        <EntityType Name="Donation">
+          <Key>
+            <PropertyRef Name="DoationId" />
+          </Key>
+          <Property Name="DoationId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DonorId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="Donor" Relationship="Self.FK_Donations_Donors" FromRole="Donations" ToRole="Donors" />
+        </EntityType>
+        <EntityType Name="Donor">
+          <Key>
+            <PropertyRef Name="DonorId" />
+          </Key>
+          <Property Name="DonorId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdressId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Level" Type="Int16" />
+          <Property Name="GroupId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="LastDonation" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Comments" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="CollectTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="StatusDonation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Adress" Relationship="Self.foradress" FromRole="Donors" ToRole="Adress" />
+          <NavigationProperty Name="Donations" Relationship="Self.FK_Donations_Donors" FromRole="Donors" ToRole="Donations" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_Donors" FromRole="Donors" ToRole="Contacts" />
+          <NavigationProperty Name="Group" Relationship="Self.forgroup" FromRole="Donors" ToRole="Groups" />
+        </EntityType>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StudentId" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Donors" Relationship="Self.forgroup" FromRole="Groups" ToRole="Donors" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Groups_Students" FromRole="Groups" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Kind_Of_Contact">
+          <Key>
+            <PropertyRef Name="ContactId" />
+          </Key>
+          <Property Name="ContactId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Priority" Type="Int16" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_Kind_Of_Contact" FromRole="Kind_Of_Contact" ToRole="Contacts" />
+        </EntityType>
+        <EntityType Name="Student">
+          <Key>
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="StudentId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LeaderId" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Groups" Relationship="Self.FK_Groups_Students" FromRole="Students" ToRole="Groups" />
+          <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_Students" FromRole="Students" ToRole="Contacts" />
+          <NavigationProperty Name="Students1" Relationship="Self.FK_Students_Students" FromRole="Students" ToRole="Students1" />
+          <NavigationProperty Name="Student1" Relationship="Self.FK_Students_Students" FromRole="Students1" ToRole="Students" />
+        </EntityType>
+        <EntityType Name="Contact">
+          <Key>
+            <PropertyRef Name="DonorId" />
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="DonorId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StudentId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="KindOfContact" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Donor" Relationship="Self.FK_Contacts_Donors" FromRole="Contacts" ToRole="Donors" />
+          <NavigationProperty Name="Kind_Of_Contact" Relationship="Self.FK_Contacts_Kind_Of_Contact" FromRole="Contacts" ToRole="Kind_Of_Contact" />
+          <NavigationProperty Name="Student" Relationship="Self.FK_Contacts_Students" FromRole="Contacts" ToRole="Students" />
+        </EntityType>
+        <Association Name="foradress">
+          <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
+          <End Role="Donors" Type="Self.Donor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Adress">
+              <PropertyRef Name="AdressId" />
+            </Principal>
+            <Dependent Role="Donors">
+              <PropertyRef Name="AdressId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Donations_Donors">
+          <End Role="Donors" Type="Self.Donor" Multiplicity="1" />
+          <End Role="Donations" Type="Self.Donation" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donors">
+              <PropertyRef Name="DonorId" />
+            </Principal>
+            <Dependent Role="Donations">
+              <PropertyRef Name="DonorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_Donors">
+          <End Role="Donors" Type="Self.Donor" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donors">
+              <PropertyRef Name="DonorId" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="DonorId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="forgroup">
+          <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Donors" Type="Self.Donor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="Donors">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Groups_Students">
+          <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Groups" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Groups">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_Kind_Of_Contact">
+          <End Role="Kind_Of_Contact" Type="Self.Kind_Of_Contact" Multiplicity="0..1" />
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kind_Of_Contact">
+              <PropertyRef Name="ContactId" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="KindOfContact" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Contacts_Students">
+          <End Role="Students" Type="Self.Student" Multiplicity="1" />
+          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Contacts">
+              <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Students_Students">
+          <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
+          <End Role="Students1" Type="Self.Student" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Students">
+              <PropertyRef Name="StudentId" />
+            </Principal>
+            <Dependent Role="Students1">
+              <PropertyRef Name="LeaderId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="newCaspotatdb3Entities3" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Adresses" EntityType="Self.Adress" />
+          <EntitySet Name="Donations" EntityType="Self.Donation" />
+          <EntitySet Name="Donors" EntityType="Self.Donor" />
+          <EntitySet Name="Groups" EntityType="Self.Group" />
+          <EntitySet Name="Kind_Of_Contact" EntityType="Self.Kind_Of_Contact" />
+          <EntitySet Name="Students" EntityType="Self.Student" />
+          <EntitySet Name="Contacts" EntityType="Self.Contact" />
+          <AssociationSet Name="foradress" Association="Self.foradress">
+            <End Role="Adress" EntitySet="Adresses" />
+            <End Role="Donors" EntitySet="Donors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Donations_Donors" Association="Self.FK_Donations_Donors">
+            <End Role="Donors" EntitySet="Donors" />
+            <End Role="Donations" EntitySet="Donations" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_Donors" Association="Self.FK_Contacts_Donors">
+            <End Role="Donors" EntitySet="Donors" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="forgroup" Association="Self.forgroup">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Donors" EntitySet="Donors" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Groups_Students" Association="Self.FK_Groups_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_Kind_Of_Contact" Association="Self.FK_Contacts_Kind_Of_Contact">
+            <End Role="Kind_Of_Contact" EntitySet="Kind_Of_Contact" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Contacts_Students" Association="Self.FK_Contacts_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Contacts" EntitySet="Contacts" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Students_Students" Association="Self.FK_Students_Students">
+            <End Role="Students" EntitySet="Students" />
+            <End Role="Students1" EntitySet="Students" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="newCaspotatdb3ModelStoreContainer" CdmEntityContainer="newCaspotatdb3Entities3">
+          <EntitySetMapping Name="Adresses">
+            <EntityTypeMapping TypeName="newCaspotatdb3Model.Adress">
+              <MappingFragment StoreEntitySet="Adress">
+                <ScalarProperty Name="AdressId" ColumnName="AdressId" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="NumBuilding" ColumnName="NumBuilding" />
+                <ScalarProperty Name="X" ColumnName="X" />
+                <ScalarProperty Name="Y" ColumnName="Y" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donations">
+            <EntityTypeMapping TypeName="newCaspotatdb3Model.Donation">
+              <MappingFragment StoreEntitySet="Donations">
+                <ScalarProperty Name="DoationId" ColumnName="DoationId" />
+                <ScalarProperty Name="DonorId" ColumnName="DonorId" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donors">
+            <EntityTypeMapping TypeName="newCaspotatdb3Model.Donor">
+              <MappingFragment StoreEntitySet="Donors">
+                <ScalarProperty Name="DonorId" ColumnName="DonorId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="AdressId" ColumnName="AdressId" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="LastDonation" ColumnName="LastDonation" />
+                <ScalarProperty Name="Comments" ColumnName="Comments" />
+                <ScalarProperty Name="CollectTime" ColumnName="CollectTime" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="StatusDonation" ColumnName="StatusDonation" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="newCaspotatdb3Model.Group">
+              <MappingFragment StoreEntitySet="Groups">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kind_Of_Contact">
+            <EntityTypeMapping TypeName="newCaspotatdb3Model.Kind_Of_Contact">
+              <MappingFragment StoreEntitySet="Kind_Of_Contact">
+                <ScalarProperty Name="ContactId" ColumnName="ContactId" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="Priority" ColumnName="Priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Students">
+            <EntityTypeMapping TypeName="newCaspotatdb3Model.Student">
+              <MappingFragment StoreEntitySet="Students">
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Class" ColumnName="Class" />
+                <ScalarProperty Name="LeaderId" ColumnName="LeaderId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts">
+            <EntityTypeMapping TypeName="newCaspotatdb3Model.Contact">
+              <MappingFragment StoreEntitySet="Contacts">
+                <ScalarProperty Name="DonorId" ColumnName="DonorId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="KindOfContact" ColumnName="KindOfContact" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

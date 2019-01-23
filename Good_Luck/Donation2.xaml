@@ -1,0 +1,29 @@
+﻿<Window x:Class="Good_Luck.Donation2"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Good_Luck"
+        mc:Ignorable="d"
+        Title="תרומות" Height="354.851" Width="382.836" FlowDirection="RightToLeft" Background="#FFE3E9F6" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <DataGrid Name="dg1" AutoGenerateColumns="False" FlowDirection="RightToLeft">
+            <DataGrid.Columns>
+                <DataGridTextColumn Binding="{Binding DoationId}" Header="קוד תרומה" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DonorId}" Header="תורם" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding Amount}" Header="סכום" Width="100"></DataGridTextColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+        <Button Width="100" Style="{StaticResource forButtons}"  Height="30" HorizontalAlignment="Right" Margin="0,258,84.8,37.6" Click="new_Donation">חדש</Button>
+        <Button Width="100" Style="{StaticResource forButtons}"  Height="30" HorizontalAlignment="Right" Margin="0,258,211.8,37.6" Click="Update_Click">עריכה</Button>
+
+    </Grid>
+</Window>
