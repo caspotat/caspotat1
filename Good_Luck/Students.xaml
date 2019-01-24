@@ -19,7 +19,7 @@
             <RowDefinition Height="1*"/>
 
         </Grid.RowDefinitions>
-        <DataGrid Name="dg1" AutoGenerateColumns="False" CellEditEnding="dg1_CellEditEnding">
+        <DataGrid Name="dg1" AutoGenerateColumns="False" CellEditEnding="dg1_CellEditEnding"  MouseDoubleClick="Row_DoubleClick">
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding StudentId}" Header="קוד בחור" Width="70"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding FirstName}" Header="שם פרטי" Width="70"></DataGridTextColumn>

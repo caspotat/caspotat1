@@ -137,6 +137,12 @@
     <Compile Include="ViewDonorDetails.xaml.cs">
       <DependentUpon>ViewDonorDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ViewMyGroup.xaml.cs">
+      <DependentUpon>ViewMyGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewStudentDetails.xaml.cs">
+      <DependentUpon>ViewStudentDetails.xaml</DependentUpon>
+    </Compile>
     <Page Include="CalcRoute.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,6 +200,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewDonorDetails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewMyGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewStudentDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

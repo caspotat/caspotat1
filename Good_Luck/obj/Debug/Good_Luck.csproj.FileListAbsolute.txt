@@ -79,3 +79,7 @@ C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\newContact.g.cs
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\newContact.baml
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewDonorDetails.g.cs
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewDonorDetails.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewStudentDetails.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewStudentDetails.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewMyGroup.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewMyGroup.baml

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Good_Luck"
         mc:Ignorable="d"
-        Title=" פרטי תורם" Height="300" Width="300">
+        Title=" פרטי תורם" Height="300" Width="300" Background="#FFE3E9F6" WindowStartupLocation="CenterScreen">
     <Grid>
         <TextBlock HorizontalAlignment="Left" Height="17" Margin="178,22,0,0" TextWrapping="Wrap" Text="שם תורם" VerticalAlignment="Top" Width="52"/>
         <TextBlock x:Name="fn" HorizontalAlignment="Left" Height="20" Margin="90,22,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="99" RenderTransformOrigin="0.855,0.65"/>

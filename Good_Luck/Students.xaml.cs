@@ -48,7 +48,29 @@ namespace Good_Luck
             db.SaveChanges();
             dg1.ItemsSource = db.Students.ToList();
         }
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (sender != null)
+                {
+                    DataGrid grid = sender as DataGrid;
+                    if (grid != null && grid.SelectedItem != null && grid.SelectedItems.Count == 1)
+                    {
+                        DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
+                        Student s = (Student)dgr.Item;
+                        int id = int.Parse(s.StudentId.ToString());
+                        ViewStudentDetails vd = new ViewStudentDetails(id);
+                        vd.Show();
 
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
         private void new_Click(object sender, RoutedEventArgs e)
         {
             newAndUpdateStudent n = new newAndUpdateStudent();
