@@ -77,5 +77,11 @@ namespace Good_Luck
             newContact n = new newContact();
             n.Show();
         }
+
+        private void Button_Click_4(object sender, RoutedEventArgs e)
+        {
+            ReadMails r = new ReadMails();
+            r.Show();
+        }
     }
 }

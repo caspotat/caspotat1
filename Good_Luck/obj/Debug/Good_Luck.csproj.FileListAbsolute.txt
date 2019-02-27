@@ -83,3 +83,11 @@ C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewStudentDetai
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewStudentDetails.baml
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewMyGroup.g.cs
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewMyGroup.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ReadMails.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ReadMails.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Login.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\Login.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ForgotPassword.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ForgotPassword.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewRoute.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewRoute.baml

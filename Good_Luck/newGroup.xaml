@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Good_Luck"
         xmlns:con="clr-namespace:Good_Luck.Converters"
         mc:Ignorable="d"
-        Title="קבוצה חדשה" Height="300" Width="403.247" Background="#FFE3E9F6" WindowStartupLocation="CenterScreen">
+        Title="קבוצה חדשה" Height="340" Width="430" Background="#FFE3E9F6" WindowStartupLocation="CenterScreen">
         <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -19,13 +19,13 @@
             <con:ListToBoolConverter x:Key="ListToBoolConverter"></con:ListToBoolConverter>
         </Grid.Resources>
         <!--ConverterParameter= {Binding StudentId}-->
-        <DataGrid Name="dg1" AutoGenerateColumns="False" CellEditEnding="dg1_CellEditEnding" SelectionChanged="colorBK" >
+        <DataGrid Name="dg1" IsEnabled="False" AutoGenerateColumns="False" CellEditEnding="dg1_CellEditEnding" SelectionChanged="colorBK" Margin="0,0,-0.2,102.4" MouseDoubleClick="Row_DoubleClick" >
             <DataGrid.Columns>
                 <DataGridTemplateColumn x:Name="col">
-                    <DataGridTemplateColumn.CellTemplate>
+                    <!--<DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <Rectangle x:Name="rec" Fill= "Red">
-                                <!--"{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window }, Path=Leader, ConverterParameter=17}" >-->
+                                --><!--"{Binding RelativeSource={RelativeSource Mode=FindAncestor, AncestorType=Window }, Path=Leader, ConverterParameter=17}" >--><!--
 
                                 <Rectangle.Visibility>
                                     <MultiBinding Converter="{StaticResource ListToBoolConverter}">
@@ -36,14 +36,14 @@
                                 </Rectangle.Visibility>
                             </Rectangle>
                         </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn.CellTemplate>-->
                 </DataGridTemplateColumn>
                 <DataGridTextColumn Binding="{Binding StudentId}" Header="קוד בחור" Width="70"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding FirstName}" Header="שם פרטי" Width="70"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding LastName}" Header="שם משפחה" Width="70"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Phone}" Header="פלאפון" Width="70"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Class}" Header="שעור" Width="50"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding LeaderId}" Header="ראש קבוצה" Width="50"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding LeaderId}" Header="ראש קבוצה" Width="70"></DataGridTextColumn>
 
             </DataGrid.Columns>
             <DataGrid.ContextMenu>
@@ -52,8 +52,12 @@
                 </ContextMenu>
             </DataGrid.ContextMenu>
         </DataGrid>
-        <ComboBox x:Name="cmbClasses"  Margin="131,185,0,48.4" HorizontalAlignment="Left" Width="110" SelectionChanged="cmbClasses_SelectionChanged"></ComboBox>
-
+        <ComboBox FlowDirection="RightToLeft" x:Name="cmbClasses"  Margin="10,213,0,67.4" HorizontalAlignment="Left" Width="110" SelectionChanged="cmbClasses_SelectionChanged"></ComboBox>
+        <ListBox x:Name="listToGroup" HorizontalAlignment="Left" Height="87" Margin="288,213,0,0" VerticalAlignment="Top" Width="112"/>
+        <Label x:Name="choose" Content="בחר שעור"  HorizontalAlignment="Left" Height="29" Margin="141,213,0,0" VerticalAlignment="Top" Width="85" Background="#FFEB2F2F" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="labelLeader" Visibility="Hidden" Content="ראש הקבוצה" HorizontalAlignment="Left" Height="25" Margin="140,247,0,0" VerticalAlignment="Top" Width="85"/>
+        <Label x:Name="ledName" Content="" HorizontalAlignment="Left" Height="25" Margin="44,248,0,0" VerticalAlignment="Top" Width="96"/>
+        <Button x:Name="buildGroup" Visibility="Hidden" Content="צור קבוצה" HorizontalAlignment="Left" Height="22" Margin="10,278,0,0" VerticalAlignment="Top" Width="99" Click="Button_Click"/>
     </Grid>
 
 </Window>

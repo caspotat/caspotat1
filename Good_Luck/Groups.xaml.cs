@@ -55,5 +55,31 @@ namespace Good_Luck
             n.Show();
            
         }
+
+        private void dg1_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (sender != null)
+                {
+                    string stam = "";
+                    DataGrid grid = sender as DataGrid;
+                    if (grid != null && grid.SelectedItem != null && grid.SelectedItems.Count == 1)
+                    {
+                        DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
+                        Group s = (Group)dgr.Item;
+                        int id = int.Parse(s.StudentId.ToString());
+                        int groupid= int.Parse(s.GroupId.ToString());
+                        ViewMyGroup vd = new ViewMyGroup(id,groupid);
+                        vd.Show();
+
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        }
     }
 }

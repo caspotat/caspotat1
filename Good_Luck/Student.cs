@@ -18,7 +18,6 @@ namespace Good_Luck
         public Student()
         {
             this.Groups = new HashSet<Group>();
-            this.Contacts = new HashSet<Contact>();
             this.Students1 = new HashSet<Student>();
         }
     
@@ -31,8 +30,6 @@ namespace Good_Luck
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Group> Groups { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contact> Contacts { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Student> Students1 { get; set; }
         public virtual Student Student1 { get; set; }

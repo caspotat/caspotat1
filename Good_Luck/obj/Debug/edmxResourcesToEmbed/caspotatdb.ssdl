@@ -11,9 +11,7 @@
     <Property Name="X" Type="float" />
     <Property Name="Y" Type="float" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-  <EntityType Name="Contacts">
+  <EntityType Name="Contacts1">
     <Key>
       <PropertyRef Name="DonorId" />
       <PropertyRef Name="StudentId" />
@@ -73,42 +71,6 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
     <Property Name="Class" Type="nvarchar" MaxLength="50" />
     <Property Name="LeaderId" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
-  <Association Name="FK_Contacts_Donors">
-    <End Role="Donors" Type="Self.Donors" Multiplicity="1" />
-    <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Donors">
-        <PropertyRef Name="DonorId" />
-      </Principal>
-      <Dependent Role="Contacts">
-        <PropertyRef Name="DonorId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Contacts_Kind_Of_Contact">
-    <End Role="Kind_Of_Contact" Type="Self.Kind_Of_Contact" Multiplicity="0..1" />
-    <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Kind_Of_Contact">
-        <PropertyRef Name="ContactId" />
-      </Principal>
-      <Dependent Role="Contacts">
-        <PropertyRef Name="KindOfContact" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
-  <Association Name="FK_Contacts_Students">
-    <End Role="Students" Type="Self.Students" Multiplicity="1" />
-    <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
-    <ReferentialConstraint>
-      <Principal Role="Students">
-        <PropertyRef Name="StudentId" />
-      </Principal>
-      <Dependent Role="Contacts">
-        <PropertyRef Name="StudentId" />
-      </Dependent>
-    </ReferentialConstraint>
-  </Association>
   <Association Name="FK_Donations_Donors">
     <End Role="Donors" Type="Self.Donors" Multiplicity="1" />
     <End Role="Donations" Type="Self.Donations" Multiplicity="*" />
@@ -171,30 +133,12 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
   </Association>
   <EntityContainer Name="newCaspotatdb3ModelStoreContainer">
     <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Contacts1" EntityType="Self.Contacts1" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donations" EntityType="Self.Donations" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Donors" EntityType="Self.Donors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kind_Of_Contact" EntityType="Self.Kind_Of_Contact" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="Contacts" EntityType="Self.Contacts" store:Type="Tables" store:Schema="dbo">
-      <DefiningQuery>SELECT 
-    [Contacts].[DonorId] AS [DonorId], 
-    [Contacts].[StudentId] AS [StudentId], 
-    [Contacts].[KindOfContact] AS [KindOfContact]
-    FROM [dbo].[Contacts] AS [Contacts]</DefiningQuery>
-    </EntitySet>
-    <AssociationSet Name="FK_Contacts_Donors" Association="Self.FK_Contacts_Donors">
-      <End Role="Donors" EntitySet="Donors" />
-      <End Role="Contacts" EntitySet="Contacts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Contacts_Kind_Of_Contact" Association="Self.FK_Contacts_Kind_Of_Contact">
-      <End Role="Kind_Of_Contact" EntitySet="Kind_Of_Contact" />
-      <End Role="Contacts" EntitySet="Contacts" />
-    </AssociationSet>
-    <AssociationSet Name="FK_Contacts_Students" Association="Self.FK_Contacts_Students">
-      <End Role="Students" EntitySet="Students" />
-      <End Role="Contacts" EntitySet="Contacts" />
-    </AssociationSet>
     <AssociationSet Name="FK_Donations_Donors" Association="Self.FK_Donations_Donors">
       <End Role="Donors" EntitySet="Donors" />
       <End Role="Donations" EntitySet="Donations" />

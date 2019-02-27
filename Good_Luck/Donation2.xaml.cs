@@ -33,10 +33,29 @@ namespace Good_Luck
 
         private void loaddatagrid()
         {
-           
-                var data = from r in db.Donations select r;
-                dg1.ItemsSource = data.ToList();
-            
+
+            var data = from r in db.Donations select r;        
+            dg1.ItemsSource = data.ToList();
+            //List<string> a = new List<string>();
+            //decimal donorid = 0;
+            //string donorname;
+            //double sum = 0;
+            //foreach (var item in db.Donors)
+            //{
+            //    donorname = item.FirstName + " " + item.LastName;
+            //    donorid = item.DonorId;
+            //    foreach (var donation in db.Donations)
+            //    {
+            //        if (donation.DonorId == donorid)
+            //            sum += double.Parse(donation.Amount.ToString());
+            //    }
+            //    a.Add(donorname);
+            //    a.Add(sum.ToString());
+                
+            //    sum = 0;
+            //}
+            //dg1.ItemsSource = a.ToList();
+
         }
 
         private void binddatagrid()
@@ -55,6 +74,7 @@ namespace Good_Luck
 
 
         }
+       
 
       
 

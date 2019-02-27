@@ -26,11 +26,11 @@ namespace Good_Luck
         }
     
         public virtual DbSet<Adress> Adresses { get; set; }
+        public virtual DbSet<Contacts1> Contacts1 { get; set; }
         public virtual DbSet<Donation> Donations { get; set; }
         public virtual DbSet<Donor> Donors { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Kind_Of_Contact> Kind_Of_Contact { get; set; }
         public virtual DbSet<Student> Students { get; set; }
-        public virtual DbSet<Contact> Contacts { get; set; }
     }
 }

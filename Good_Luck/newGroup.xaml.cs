@@ -24,7 +24,7 @@ namespace Good_Luck
         newCaspotatdb3Entities3 db = new newCaspotatdb3Entities3();
         ObservableCollection<Student> studentsInGroup = new ObservableCollection<Student>();
         int leader;
-
+        static int misClicks = 0;
 
         public int Leader
         {
@@ -65,10 +65,18 @@ namespace Good_Luck
 
         private void cmbClasses_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            string selClass = cmbClasses.SelectedItem.ToString();
-            List<Student> l = new List<Student>();
-            l = db.Students.Where(r => r.Class == selClass && r.LeaderId == null).ToList();
-            dg1.ItemsSource = l;
+           
+                string selClass = cmbClasses.SelectedItem.ToString();
+                List<Student> l = new List<Student>();
+                l = db.Students.Where(r => r.Class == selClass && r.LeaderId == null).ToList();
+                dg1.ItemsSource = l;
+                dg1.IsEnabled = true;
+                choose.Visibility = Visibility.Hidden;
+                buildGroup.Visibility = Visibility.Visible;
+                MessageBox.Show("נא לבחור ראש קבוצה");
+            
+            
+
         }
 
        
@@ -77,5 +85,57 @@ namespace Good_Luck
         {
             Leader = int.Parse((dg1.SelectedItem as Student).StudentId.ToString());
         }
+
+        private void Row_DoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            labelLeader.Visibility = Visibility.Visible;
+            try
+            {
+                if (sender != null)
+                {
+                    DataGrid grid = sender as DataGrid;
+                    if (grid != null && grid.SelectedItem != null && grid.SelectedItems.Count == 1)
+                    {
+                        DataGridRow dgr = grid.ItemContainerGenerator.ContainerFromItem(grid.SelectedItem) as DataGridRow;
+                        Student d = (Student)dgr.Item;
+                        string name = d.FirstName+" "+d.LastName;
+                        listToGroup.Items.Add(name);                        
+                        if(misClicks==0)//אם זה ראש הקבוצה
+                        {
+                            leader = int.Parse(d.StudentId.ToString());
+                            ledName.Content = d.FirstName + " " + d.LastName;
+                            misClicks++;
+                        }
+                        d.LeaderId = leader;
+                        db.SaveChanges();
+                       
+                        //dg1.Items.Remove(grid.SelectedItem);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message.ToString());
+            }
+        
+    }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+        if (listToGroup.Items.Count > 0)
+        {
+            Group g = new Group();
+            g.StudentId = leader;
+            db.Groups.Add(g);
+            db.SaveChanges();
+            Group newgroup = db.Groups.Where(r => r.StudentId == leader).SingleOrDefault();
+            int misgroup = int.Parse(newgroup.GroupId.ToString());
+            MessageBox.Show("הקבוצה נוצרה בהצלחה, מספר הקבוצה: " + misgroup);
+            this.Close();
+        }
+        else
+          
+            MessageBox.Show("לא נבחר אף בחור לקבוצה זו");
+    }
     }
 }

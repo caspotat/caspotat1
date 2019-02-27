@@ -18,7 +18,6 @@ namespace Good_Luck
         public Donor()
         {
             this.Donations = new HashSet<Donation>();
-            this.Contacts = new HashSet<Contact>();
         }
     
         public decimal DonorId { get; set; }
@@ -37,8 +36,6 @@ namespace Good_Luck
         public virtual Adress Adress { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Donation> Donations { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contact> Contacts { get; set; }
         public virtual Group Group { get; set; }
     }
 }

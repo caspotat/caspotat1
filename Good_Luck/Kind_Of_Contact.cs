@@ -14,17 +14,8 @@ namespace Good_Luck
     
     public partial class Kind_Of_Contact
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Kind_Of_Contact()
-        {
-            this.Contacts = new HashSet<Contact>();
-        }
-    
         public decimal ContactId { get; set; }
         public string ContactName { get; set; }
         public Nullable<short> Priority { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Contact> Contacts { get; set; }
     }
 }

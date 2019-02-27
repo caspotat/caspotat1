@@ -1,0 +1,25 @@
+﻿<Window x:Class="Good_Luck.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Good_Luck"
+        mc:Ignorable="d"
+        Title="Login" Height="300" Width="300" FlowDirection="RightToLeft" Background="#FFE3E9F6" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Dictionary1.xaml"></ResourceDictionary>
+            </ResourceDictionary.MergedDictionaries>
+            <FontFamily x:Key="FontFamily1">Segoe UI</FontFamily>
+        </ResourceDictionary>
+    </Window.Resources>
+    <Grid>
+        <Button Style="{StaticResource forButtons}" x:Name="enter" Content="כניסה" HorizontalAlignment="Left" Margin="93,194,0,0" VerticalAlignment="Top" Width="93" Height="32" RenderTransformOrigin="0.5,0.5" Click="enter_Click"/>
+        <Label Content="הקש סיסמא" FlowDirection="RightToLeft" HorizontalAlignment="Left" Height="33" Margin="79,57,0,0" VerticalAlignment="Top" Width="133" FontSize="16" FontWeight="Bold"/>
+        <TextBox x:Name="pass" BorderBrush="Black" BorderThickness="3" HorizontalAlignment="Left" Height="27" Margin="79,110,0,0" TextWrapping="Wrap" ToolTip="הקש סיסמא" Text="" VerticalAlignment="Top" Width="133" TextChanged="pass_TextChanged"/>
+        <Label MouseDoubleClick="Label_MouseDoubleClick" Content="שכחתי סיסמא" HorizontalAlignment="Left" Height="34" Margin="79,142,0,0" VerticalAlignment="Top" Width="133" FontSize="14"/>
+
+
+    </Grid>
+</Window>

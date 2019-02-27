@@ -16,9 +16,7 @@
           <Property Name="X" Type="float" />
           <Property Name="Y" Type="float" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Contacts">
+        <EntityType Name="Contacts1">
           <Key>
             <PropertyRef Name="DonorId" />
             <PropertyRef Name="StudentId" />
@@ -78,42 +76,6 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
           <Property Name="Class" Type="nvarchar" MaxLength="50" />
           <Property Name="LeaderId" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
-        <Association Name="FK_Contacts_Donors">
-          <End Role="Donors" Type="Self.Donors" Multiplicity="1" />
-          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Donors">
-              <PropertyRef Name="DonorId" />
-            </Principal>
-            <Dependent Role="Contacts">
-              <PropertyRef Name="DonorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Contacts_Kind_Of_Contact">
-          <End Role="Kind_Of_Contact" Type="Self.Kind_Of_Contact" Multiplicity="0..1" />
-          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kind_Of_Contact">
-              <PropertyRef Name="ContactId" />
-            </Principal>
-            <Dependent Role="Contacts">
-              <PropertyRef Name="KindOfContact" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Contacts_Students">
-          <End Role="Students" Type="Self.Students" Multiplicity="1" />
-          <End Role="Contacts" Type="Self.Contacts" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Students">
-              <PropertyRef Name="StudentId" />
-            </Principal>
-            <Dependent Role="Contacts">
-              <PropertyRef Name="StudentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Donations_Donors">
           <End Role="Donors" Type="Self.Donors" Multiplicity="1" />
           <End Role="Donations" Type="Self.Donations" Multiplicity="*" />
@@ -176,30 +138,12 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
         </Association>
         <EntityContainer Name="newCaspotatdb3ModelStoreContainer">
           <EntitySet Name="Adress" EntityType="Self.Adress" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Contacts1" EntityType="Self.Contacts1" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donations" EntityType="Self.Donations" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Donors" EntityType="Self.Donors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kind_Of_Contact" EntityType="Self.Kind_Of_Contact" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Contacts" EntityType="Self.Contacts" store:Type="Tables" store:Schema="dbo">
-            <DefiningQuery>SELECT 
-    [Contacts].[DonorId] AS [DonorId], 
-    [Contacts].[StudentId] AS [StudentId], 
-    [Contacts].[KindOfContact] AS [KindOfContact]
-    FROM [dbo].[Contacts] AS [Contacts]</DefiningQuery>
-          </EntitySet>
-          <AssociationSet Name="FK_Contacts_Donors" Association="Self.FK_Contacts_Donors">
-            <End Role="Donors" EntitySet="Donors" />
-            <End Role="Contacts" EntitySet="Contacts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contacts_Kind_Of_Contact" Association="Self.FK_Contacts_Kind_Of_Contact">
-            <End Role="Kind_Of_Contact" EntitySet="Kind_Of_Contact" />
-            <End Role="Contacts" EntitySet="Contacts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contacts_Students" Association="Self.FK_Contacts_Students">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="Contacts" EntitySet="Contacts" />
-          </AssociationSet>
           <AssociationSet Name="FK_Donations_Donors" Association="Self.FK_Donations_Donors">
             <End Role="Donors" EntitySet="Donors" />
             <End Role="Donations" EntitySet="Donations" />
@@ -238,6 +182,15 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
           <Property Name="Y" Type="Double" />
           <NavigationProperty Name="Donors" Relationship="Self.foradress" FromRole="Adress" ToRole="Donors" />
         </EntityType>
+        <EntityType Name="Contacts1">
+          <Key>
+            <PropertyRef Name="DonorId" />
+            <PropertyRef Name="StudentId" />
+          </Key>
+          <Property Name="DonorId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="StudentId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="KindOfContact" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
         <EntityType Name="Donation">
           <Key>
             <PropertyRef Name="DoationId" />
@@ -265,7 +218,6 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
           <Property Name="StatusDonation" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Adress" Relationship="Self.foradress" FromRole="Donors" ToRole="Adress" />
           <NavigationProperty Name="Donations" Relationship="Self.FK_Donations_Donors" FromRole="Donors" ToRole="Donations" />
-          <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_Donors" FromRole="Donors" ToRole="Contacts" />
           <NavigationProperty Name="Group" Relationship="Self.forgroup" FromRole="Donors" ToRole="Groups" />
         </EntityType>
         <EntityType Name="Group">
@@ -284,7 +236,6 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
           <Property Name="ContactId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Priority" Type="Int16" />
-          <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_Kind_Of_Contact" FromRole="Kind_Of_Contact" ToRole="Contacts" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -297,21 +248,8 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
           <Property Name="Class" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="LeaderId" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="Groups" Relationship="Self.FK_Groups_Students" FromRole="Students" ToRole="Groups" />
-          <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_Students" FromRole="Students" ToRole="Contacts" />
           <NavigationProperty Name="Students1" Relationship="Self.FK_Students_Students" FromRole="Students" ToRole="Students1" />
           <NavigationProperty Name="Student1" Relationship="Self.FK_Students_Students" FromRole="Students1" ToRole="Students" />
-        </EntityType>
-        <EntityType Name="Contact">
-          <Key>
-            <PropertyRef Name="DonorId" />
-            <PropertyRef Name="StudentId" />
-          </Key>
-          <Property Name="DonorId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="StudentId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
-          <Property Name="KindOfContact" Type="Decimal" Precision="18" Scale="0" />
-          <NavigationProperty Name="Donor" Relationship="Self.FK_Contacts_Donors" FromRole="Contacts" ToRole="Donors" />
-          <NavigationProperty Name="Kind_Of_Contact" Relationship="Self.FK_Contacts_Kind_Of_Contact" FromRole="Contacts" ToRole="Kind_Of_Contact" />
-          <NavigationProperty Name="Student" Relationship="Self.FK_Contacts_Students" FromRole="Contacts" ToRole="Students" />
         </EntityType>
         <Association Name="foradress">
           <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
@@ -333,18 +271,6 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
               <PropertyRef Name="DonorId" />
             </Principal>
             <Dependent Role="Donations">
-              <PropertyRef Name="DonorId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Contacts_Donors">
-          <End Role="Donors" Type="Self.Donor" Multiplicity="1" />
-          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Donors">
-              <PropertyRef Name="DonorId" />
-            </Principal>
-            <Dependent Role="Contacts">
               <PropertyRef Name="DonorId" />
             </Dependent>
           </ReferentialConstraint>
@@ -373,30 +299,6 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Contacts_Kind_Of_Contact">
-          <End Role="Kind_Of_Contact" Type="Self.Kind_Of_Contact" Multiplicity="0..1" />
-          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Kind_Of_Contact">
-              <PropertyRef Name="ContactId" />
-            </Principal>
-            <Dependent Role="Contacts">
-              <PropertyRef Name="KindOfContact" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Contacts_Students">
-          <End Role="Students" Type="Self.Student" Multiplicity="1" />
-          <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Students">
-              <PropertyRef Name="StudentId" />
-            </Principal>
-            <Dependent Role="Contacts">
-              <PropertyRef Name="StudentId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Students_Students">
           <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
           <End Role="Students1" Type="Self.Student" Multiplicity="*" />
@@ -411,12 +313,12 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
         </Association>
         <EntityContainer Name="newCaspotatdb3Entities3" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Adresses" EntityType="Self.Adress" />
+          <EntitySet Name="Contacts1" EntityType="Self.Contacts1" />
           <EntitySet Name="Donations" EntityType="Self.Donation" />
           <EntitySet Name="Donors" EntityType="Self.Donor" />
           <EntitySet Name="Groups" EntityType="Self.Group" />
           <EntitySet Name="Kind_Of_Contact" EntityType="Self.Kind_Of_Contact" />
           <EntitySet Name="Students" EntityType="Self.Student" />
-          <EntitySet Name="Contacts" EntityType="Self.Contact" />
           <AssociationSet Name="foradress" Association="Self.foradress">
             <End Role="Adress" EntitySet="Adresses" />
             <End Role="Donors" EntitySet="Donors" />
@@ -425,10 +327,6 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
             <End Role="Donors" EntitySet="Donors" />
             <End Role="Donations" EntitySet="Donations" />
           </AssociationSet>
-          <AssociationSet Name="FK_Contacts_Donors" Association="Self.FK_Contacts_Donors">
-            <End Role="Donors" EntitySet="Donors" />
-            <End Role="Contacts" EntitySet="Contacts" />
-          </AssociationSet>
           <AssociationSet Name="forgroup" Association="Self.forgroup">
             <End Role="Groups" EntitySet="Groups" />
             <End Role="Donors" EntitySet="Donors" />
@@ -436,14 +334,6 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
           <AssociationSet Name="FK_Groups_Students" Association="Self.FK_Groups_Students">
             <End Role="Students" EntitySet="Students" />
             <End Role="Groups" EntitySet="Groups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contacts_Kind_Of_Contact" Association="Self.FK_Contacts_Kind_Of_Contact">
-            <End Role="Kind_Of_Contact" EntitySet="Kind_Of_Contact" />
-            <End Role="Contacts" EntitySet="Contacts" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Contacts_Students" Association="Self.FK_Contacts_Students">
-            <End Role="Students" EntitySet="Students" />
-            <End Role="Contacts" EntitySet="Contacts" />
           </AssociationSet>
           <AssociationSet Name="FK_Students_Students" Association="Self.FK_Students_Students">
             <End Role="Students" EntitySet="Students" />
@@ -465,6 +355,15 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
                 <ScalarProperty Name="NumBuilding" ColumnName="NumBuilding" />
                 <ScalarProperty Name="X" ColumnName="X" />
                 <ScalarProperty Name="Y" ColumnName="Y" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Contacts1">
+            <EntityTypeMapping TypeName="newCaspotatdb3Model.Contacts1">
+              <MappingFragment StoreEntitySet="Contacts1">
+                <ScalarProperty Name="DonorId" ColumnName="DonorId" />
+                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
+                <ScalarProperty Name="KindOfContact" ColumnName="KindOfContact" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -521,15 +420,6 @@ warning 6002: The table/view 'newCaspotatdb3.dbo.Contacts' does not have a prima
                 <ScalarProperty Name="Phone" ColumnName="Phone" />
                 <ScalarProperty Name="Class" ColumnName="Class" />
                 <ScalarProperty Name="LeaderId" ColumnName="LeaderId" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Contacts">
-            <EntityTypeMapping TypeName="newCaspotatdb3Model.Contact">
-              <MappingFragment StoreEntitySet="Contacts">
-                <ScalarProperty Name="DonorId" ColumnName="DonorId" />
-                <ScalarProperty Name="StudentId" ColumnName="StudentId" />
-                <ScalarProperty Name="KindOfContact" ColumnName="KindOfContact" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

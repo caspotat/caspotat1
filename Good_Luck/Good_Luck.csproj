@@ -85,7 +85,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>caspotatdb.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Contact.cs">
+    <Compile Include="Contacts1.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Converters\ListToBoolConverter.cs" />
@@ -100,11 +100,17 @@
     <Compile Include="Donor.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
+    <Compile Include="ForgotPassword.xaml.cs">
+      <DependentUpon>ForgotPassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Group.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Kind_Of_Contact.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
     </Compile>
     <Compile Include="newContact.xaml.cs">
       <DependentUpon>newContact.xaml</DependentUpon>
@@ -128,17 +134,24 @@
       <DependentUpon>newStudent.xaml</DependentUpon>
     </Compile>
     <Compile Include="PointAddress.cs" />
+    <Compile Include="ReadMails.xaml.cs">
+      <DependentUpon>ReadMails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Student.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
     <Compile Include="Students.xaml.cs">
       <DependentUpon>Students.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Variables.cs" />
     <Compile Include="ViewDonorDetails.xaml.cs">
       <DependentUpon>ViewDonorDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewMyGroup.xaml.cs">
       <DependentUpon>ViewMyGroup.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ViewRoute.xaml.cs">
+      <DependentUpon>ViewRoute.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewStudentDetails.xaml.cs">
       <DependentUpon>ViewStudentDetails.xaml</DependentUpon>
@@ -152,6 +165,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Donation2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ForgotPassword.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -195,6 +216,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="ReadMails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Students.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -204,6 +229,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ViewMyGroup.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ViewRoute.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -27,14 +27,14 @@ namespace Good_Luck
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Contact c = new Contact();
+            Contacts1 c = new Contacts1();
             c.DonorId = int.Parse(donorId.Text);
             c.StudentId = int.Parse(studentid.Text);
             c.KindOfContact = int.Parse(kindofcontact.Text);
             //d.CollectTime = this.collectime.Text;
             try
             {
-                db.Contacts.Add(c);
+                db.Contacts1.Add(c);
                 db.SaveChanges();
                 MessageBox.Show("the data saved");
             }

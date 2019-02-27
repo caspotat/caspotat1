@@ -20,7 +20,7 @@ namespace Good_Luck
     public partial class ViewMyGroup : Window
     {
         newCaspotatdb3Entities3 db = new newCaspotatdb3Entities3();
-
+        int group = 0;
         public ViewMyGroup()
         {
             InitializeComponent();
@@ -28,6 +28,8 @@ namespace Good_Luck
         public ViewMyGroup(int id)
         {
             InitializeComponent();
+
+            viewRoute.Visibility = Visibility.Hidden;
             Student s= db.Students.FirstOrDefault(x => x.StudentId == id);
             string str = s.FirstName + " " + s.LastName;
             studentName.Text = str;
@@ -44,6 +46,57 @@ namespace Good_Luck
                 }
             }
             
+        }
+        public ViewMyGroup(int id,int groupid)
+        {
+            InitializeComponent();
+            group = groupid;
+            viewRoute.Visibility = Visibility.Visible;
+            Student s = db.Students.FirstOrDefault(x => x.StudentId == id);
+            string str = s.FirstName + " " + s.LastName;
+            studentName.Visibility=Visibility.Hidden;
+            labelofsname.Visibility = Visibility.Hidden;
+            Student l = db.Students.FirstOrDefault(y => y.StudentId ==id);
+            leaderName.Text = l.FirstName + " " + l.LastName;
+            foreach (Student one_s in db.Students)
+            {
+
+                if (one_s.LeaderId == id && one_s.StudentId != id)
+                {
+                    str = one_s.FirstName + " " + one_s.LastName;
+                    studentsingroup.Items.Add(str);
+                }
+            }
+
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                if (sender != null)
+                {
+                    ListBox l = sender as ListBox;
+                    if (l != null && l.SelectedItem != null && l.SelectedItems.Count == 1)
+                    {
+                        ListBoxItem dgr = l.ItemContainerGenerator.ContainerFromItem(l.SelectedItem) as ListBoxItem;
+
+
+                    }
+                    else
+                    {
+
+                    }
+                }
+            }
+            catch(Exception ex)
+            { }
+            }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            ViewRoute v = new ViewRoute(group);
+            v.Show();
         }
     }
 }

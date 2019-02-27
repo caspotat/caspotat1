@@ -8,13 +8,18 @@
         Title="פרטי קבוצה" Height="300" Width="300" Background="#FFE3E9F6" WindowStartupLocation="CenterScreen">
     <Grid>
 
-        <ListBox x:Name="studentsingroup" FlowDirection="RightToLeft"  HorizontalAlignment="Left" Height="156" Margin="88,104,0,0" VerticalAlignment="Top" Width="115"/>
-        
-        <TextBlock HorizontalAlignment="Left" Height="22" Margin="159,23,0,0" TextWrapping="Wrap" Text="שם בחור" VerticalAlignment="Top" Width="78"/>
+        <ListBox x:Name="studentsingroup" FlowDirection="RightToLeft"  HorizontalAlignment="Left" Height="156" Margin="88,104,0,0" VerticalAlignment="Top" Width="115">
+            <!--<ListBox.ContextMenu>
+               <ContextMenu>
+                <MenuItem Header="פרטי בחור" Click="MenuItem_Click"/>
+               </ContextMenu>
+            </ListBox.ContextMenu>-->
+        </ListBox> 
+        <TextBlock x:Name="labelofsname" HorizontalAlignment="Left" Height="22" Margin="159,23,0,0" TextWrapping="Wrap" Text="שם בחור" VerticalAlignment="Top" Width="78"/>
         <TextBlock x:Name="studentName" HorizontalAlignment="Left" Height="22" Margin="76,23,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="78"/>
         <TextBlock x:Name="leaderName" HorizontalAlignment="Left" Height="22" Margin="76,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="78"/>
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="154,45,0,0" TextWrapping="Wrap" Text="ראש קבוצה" VerticalAlignment="Top" Width="78"/>
         <TextBlock  HorizontalAlignment="Left" Height="22" Margin="111,77,0,0" TextWrapping="Wrap" Text="רשימת בחורים" VerticalAlignment="Top" Width="78"/>
-
+        <Button x:Name="viewRoute" Click="Button_Click" Margin="0,201,212.6,49.4">הצג מסלול</Button>
     </Grid>
 </Window>

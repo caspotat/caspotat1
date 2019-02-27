@@ -38,7 +38,7 @@ namespace Good_Luck
             ld.Text = donor.LastDonation.ToString();
             comment.Text = donor.Comments;
             ct.Text = donor.CollectTime;
-            Contact c = db.Contacts.FirstOrDefault(r => r.DonorId == id);
+            Contacts1 c = db.Contacts1.FirstOrDefault(r => r.DonorId == id);
             //Student s = db.Students.FirstOrDefault(l => l.StudentId == c.StudentId);
             //string names=s.FirstName+" "+s.LastName;
             //allcontact.Text = c.KindOfContact.ToString() + " של " + names;
