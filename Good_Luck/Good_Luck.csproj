@@ -137,6 +137,12 @@
     <Compile Include="ReadMails.xaml.cs">
       <DependentUpon>ReadMails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Route.cs">
+      <DependentUpon>caspotatdb.tt</DependentUpon>
+    </Compile>
+    <Compile Include="RouteToGroup.xaml.cs">
+      <DependentUpon>RouteToGroup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Student.cs">
       <DependentUpon>caspotatdb.tt</DependentUpon>
     </Compile>
@@ -217,6 +223,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="ReadMails.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RouteToGroup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

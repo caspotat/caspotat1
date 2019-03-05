@@ -34,9 +34,8 @@ namespace Good_Luck
         {
   
             InitializeComponent();
-            CreateRoutes();
         }
-        private void CreateRoutes()
+        public List<List<Adress>> CreateRoutes()
         {
             List<List<Adress>> routes = new List<List<Adress>>();
             List<Adress> temp = new List<Adress>();
@@ -83,7 +82,7 @@ namespace Good_Luck
                 }
 
             }
-
+            return routes;
         }
 
 
@@ -131,6 +130,7 @@ namespace Good_Luck
                 }
                 CreateRoute(adresses, route, index - 1);
             }
+
         }
     }
 }

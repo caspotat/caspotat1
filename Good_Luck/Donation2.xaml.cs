@@ -25,36 +25,25 @@ namespace Good_Luck
     public partial class Donation2 : Window
     {
         newCaspotatdb3Entities3 db = new newCaspotatdb3Entities3();
+       
         public Donation2()
         {
             InitializeComponent();
+        
             loaddatagrid();
         }
 
         private void loaddatagrid()
         {
 
-            var data = from r in db.Donations select r;        
-            dg1.ItemsSource = data.ToList();
-            //List<string> a = new List<string>();
-            //decimal donorid = 0;
-            //string donorname;
-            //double sum = 0;
-            //foreach (var item in db.Donors)
-            //{
-            //    donorname = item.FirstName + " " + item.LastName;
-            //    donorid = item.DonorId;
-            //    foreach (var donation in db.Donations)
-            //    {
-            //        if (donation.DonorId == donorid)
-            //            sum += double.Parse(donation.Amount.ToString());
-            //    }
-            //    a.Add(donorname);
-            //    a.Add(sum.ToString());
-                
-            //    sum = 0;
-            //}
-            //dg1.ItemsSource = a.ToList();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("DonationId", typeof(int));
+            dt.Columns.Add("DonorName", typeof(string));
+            dt.Columns.Add("Amount", typeof(double));
+            db.Donations.ToList().ForEach(v => dt.Rows.Add(Convert.ToInt32(v.DoationId), db.Donors.Single(don => don.DonorId == v.DonorId).FirstName + " " + db.Donors.Single(stu => stu.DonorId == v.DonorId).LastName, Convert.ToDouble(v.Amount)));
+            dg1.ItemsSource = dt.DefaultView;
+
+
 
         }
 

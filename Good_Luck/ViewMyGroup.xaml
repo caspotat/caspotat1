@@ -20,6 +20,6 @@
         <TextBlock x:Name="leaderName" HorizontalAlignment="Left" Height="22" Margin="76,45,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="78"/>
         <TextBlock HorizontalAlignment="Left" Height="22" Margin="154,45,0,0" TextWrapping="Wrap" Text="ראש קבוצה" VerticalAlignment="Top" Width="78"/>
         <TextBlock  HorizontalAlignment="Left" Height="22" Margin="111,77,0,0" TextWrapping="Wrap" Text="רשימת בחורים" VerticalAlignment="Top" Width="78"/>
-        <Button x:Name="viewRoute" Click="Button_Click" Margin="0,201,212.6,49.4">הצג מסלול</Button>
+        <Button x:Name="viewRoute" Click="Button_Click" Margin="6,179,206.6,49.4">הצג מסלול</Button>
     </Grid>
 </Window>

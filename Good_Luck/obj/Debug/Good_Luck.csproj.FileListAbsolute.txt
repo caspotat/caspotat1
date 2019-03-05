@@ -91,3 +91,5 @@ C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ForgotPassword.g
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ForgotPassword.baml
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewRoute.g.cs
 C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\ViewRoute.baml
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\RouteToGroup.g.cs
+C:\Users\מלכי ג'דה\Desktop\Good_Luck\Good_Luck\obj\Debug\RouteToGroup.baml

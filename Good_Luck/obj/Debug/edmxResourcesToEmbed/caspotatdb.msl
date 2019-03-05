@@ -10,6 +10,7 @@
           <ScalarProperty Name="NumBuilding" ColumnName="NumBuilding" />
           <ScalarProperty Name="X" ColumnName="X" />
           <ScalarProperty Name="Y" ColumnName="Y" />
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -63,6 +64,15 @@
           <ScalarProperty Name="ContactId" ColumnName="ContactId" />
           <ScalarProperty Name="ContactName" ColumnName="ContactName" />
           <ScalarProperty Name="Priority" ColumnName="Priority" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Routes">
+      <EntityTypeMapping TypeName="newCaspotatdb3Model.Route">
+        <MappingFragment StoreEntitySet="Routes">
+          <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="level" ColumnName="level" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

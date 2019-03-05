@@ -10,6 +10,7 @@
     <Property Name="NumBuilding" Type="smallint" />
     <Property Name="X" Type="float" />
     <Property Name="Y" Type="float" />
+    <Property Name="RouteId" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
   <EntityType Name="Contacts1">
     <Key>
@@ -60,6 +61,14 @@
     <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
     <Property Name="Priority" Type="smallint" />
   </EntityType>
+  <EntityType Name="Routes">
+    <Key>
+      <PropertyRef Name="RouteId" />
+    </Key>
+    <Property Name="RouteId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+    <Property Name="GroupId" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="level" Type="numeric" Precision="18" Scale="0" />
+  </EntityType>
   <EntityType Name="Students">
     <Key>
       <PropertyRef Name="StudentId" />
@@ -71,6 +80,18 @@
     <Property Name="Class" Type="nvarchar" MaxLength="50" />
     <Property Name="LeaderId" Type="numeric" Precision="18" Scale="0" />
   </EntityType>
+  <Association Name="FK_Adress_Routes">
+    <End Role="Routes" Type="Self.Routes" Multiplicity="0..1" />
+    <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Routes">
+        <PropertyRef Name="RouteId" />
+      </Principal>
+      <Dependent Role="Adress">
+        <PropertyRef Name="RouteId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="FK_Donations_Donors">
     <End Role="Donors" Type="Self.Donors" Multiplicity="1" />
     <End Role="Donations" Type="Self.Donations" Multiplicity="*" />
@@ -92,6 +113,18 @@
       </Principal>
       <Dependent Role="Groups">
         <PropertyRef Name="StudentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Routes_Groups">
+    <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+    <End Role="Routes" Type="Self.Routes" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="GroupId" />
+      </Principal>
+      <Dependent Role="Routes">
+        <PropertyRef Name="GroupId" />
       </Dependent>
     </ReferentialConstraint>
   </Association>
@@ -138,7 +171,12 @@
     <EntitySet Name="Donors" EntityType="Self.Donors" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Kind_Of_Contact" EntityType="Self.Kind_Of_Contact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Routes" EntityType="Self.Routes" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Adress_Routes" Association="Self.FK_Adress_Routes">
+      <End Role="Routes" EntitySet="Routes" />
+      <End Role="Adress" EntitySet="Adress" />
+    </AssociationSet>
     <AssociationSet Name="FK_Donations_Donors" Association="Self.FK_Donations_Donors">
       <End Role="Donors" EntitySet="Donors" />
       <End Role="Donations" EntitySet="Donations" />
@@ -146,6 +184,10 @@
     <AssociationSet Name="FK_Groups_Students" Association="Self.FK_Groups_Students">
       <End Role="Students" EntitySet="Students" />
       <End Role="Groups" EntitySet="Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Routes_Groups" Association="Self.FK_Routes_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Routes" EntitySet="Routes" />
     </AssociationSet>
     <AssociationSet Name="FK_Students_Students" Association="Self.FK_Students_Students">
       <End Role="Students" EntitySet="Students" />

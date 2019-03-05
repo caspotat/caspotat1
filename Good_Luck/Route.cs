@@ -12,22 +12,20 @@ namespace Good_Luck
     using System;
     using System.Collections.Generic;
     
-    public partial class Group
+    public partial class Route
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Group()
+        public Route()
         {
-            this.Donors = new HashSet<Donor>();
-            this.Routes = new HashSet<Route>();
+            this.Adresses = new HashSet<Adress>();
         }
     
-        public decimal GroupId { get; set; }
-        public Nullable<decimal> StudentId { get; set; }
+        public decimal RouteId { get; set; }
+        public Nullable<decimal> GroupId { get; set; }
+        public Nullable<decimal> level { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Donor> Donors { get; set; }
-        public virtual Student Student { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Route> Routes { get; set; }
+        public virtual ICollection<Adress> Adresses { get; set; }
+        public virtual Group Group { get; set; }
     }
 }

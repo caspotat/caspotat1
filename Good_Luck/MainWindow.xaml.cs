@@ -83,5 +83,11 @@ namespace Good_Luck
             ReadMails r = new ReadMails();
             r.Show();
         }
+
+        private void Button_Click_5(object sender, RoutedEventArgs e)
+        {
+            RouteToGroup r = new RouteToGroup();
+            r.Show();
+        }
     }
 }

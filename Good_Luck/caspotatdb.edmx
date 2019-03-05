@@ -15,6 +15,7 @@
           <Property Name="NumBuilding" Type="smallint" />
           <Property Name="X" Type="float" />
           <Property Name="Y" Type="float" />
+          <Property Name="RouteId" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
         <EntityType Name="Contacts1">
           <Key>
@@ -65,6 +66,14 @@
           <Property Name="ContactName" Type="nvarchar" MaxLength="50" />
           <Property Name="Priority" Type="smallint" />
         </EntityType>
+        <EntityType Name="Routes">
+          <Key>
+            <PropertyRef Name="RouteId" />
+          </Key>
+          <Property Name="RouteId" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GroupId" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="level" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
         <EntityType Name="Students">
           <Key>
             <PropertyRef Name="StudentId" />
@@ -76,6 +85,18 @@
           <Property Name="Class" Type="nvarchar" MaxLength="50" />
           <Property Name="LeaderId" Type="numeric" Precision="18" Scale="0" />
         </EntityType>
+        <Association Name="FK_Adress_Routes">
+          <End Role="Routes" Type="Self.Routes" Multiplicity="0..1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routes">
+              <PropertyRef Name="RouteId" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Donations_Donors">
           <End Role="Donors" Type="Self.Donors" Multiplicity="1" />
           <End Role="Donations" Type="Self.Donations" Multiplicity="*" />
@@ -97,6 +118,18 @@
             </Principal>
             <Dependent Role="Groups">
               <PropertyRef Name="StudentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Routes_Groups">
+          <End Role="Groups" Type="Self.Groups" Multiplicity="0..1" />
+          <End Role="Routes" Type="Self.Routes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="Routes">
+              <PropertyRef Name="GroupId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -143,7 +176,12 @@
           <EntitySet Name="Donors" EntityType="Self.Donors" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Groups" EntityType="Self.Groups" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Kind_Of_Contact" EntityType="Self.Kind_Of_Contact" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Routes" EntityType="Self.Routes" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Students" EntityType="Self.Students" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Adress_Routes" Association="Self.FK_Adress_Routes">
+            <End Role="Routes" EntitySet="Routes" />
+            <End Role="Adress" EntitySet="Adress" />
+          </AssociationSet>
           <AssociationSet Name="FK_Donations_Donors" Association="Self.FK_Donations_Donors">
             <End Role="Donors" EntitySet="Donors" />
             <End Role="Donations" EntitySet="Donations" />
@@ -151,6 +189,10 @@
           <AssociationSet Name="FK_Groups_Students" Association="Self.FK_Groups_Students">
             <End Role="Students" EntitySet="Students" />
             <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Routes_Groups" Association="Self.FK_Routes_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Routes" EntitySet="Routes" />
           </AssociationSet>
           <AssociationSet Name="FK_Students_Students" Association="Self.FK_Students_Students">
             <End Role="Students" EntitySet="Students" />
@@ -180,6 +222,8 @@
           <Property Name="NumBuilding" Type="Int16" />
           <Property Name="X" Type="Double" />
           <Property Name="Y" Type="Double" />
+          <Property Name="RouteId" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Route" Relationship="Self.FK_Adress_Routes" FromRole="Adress" ToRole="Routes" />
           <NavigationProperty Name="Donors" Relationship="Self.foradress" FromRole="Adress" ToRole="Donors" />
         </EntityType>
         <EntityType Name="Contacts1">
@@ -228,6 +272,7 @@
           <Property Name="StudentId" Type="Decimal" Precision="18" Scale="0" />
           <NavigationProperty Name="Donors" Relationship="Self.forgroup" FromRole="Groups" ToRole="Donors" />
           <NavigationProperty Name="Student" Relationship="Self.FK_Groups_Students" FromRole="Groups" ToRole="Students" />
+          <NavigationProperty Name="Routes" Relationship="Self.FK_Routes_Groups" FromRole="Groups" ToRole="Routes" />
         </EntityType>
         <EntityType Name="Kind_Of_Contact">
           <Key>
@@ -236,6 +281,16 @@
           <Property Name="ContactId" Type="Decimal" Precision="18" Scale="0" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ContactName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="Priority" Type="Int16" />
+        </EntityType>
+        <EntityType Name="Route">
+          <Key>
+            <PropertyRef Name="RouteId" />
+          </Key>
+          <Property Name="RouteId" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="GroupId" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="level" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="Adresses" Relationship="Self.FK_Adress_Routes" FromRole="Routes" ToRole="Adress" />
+          <NavigationProperty Name="Group" Relationship="Self.FK_Routes_Groups" FromRole="Routes" ToRole="Groups" />
         </EntityType>
         <EntityType Name="Student">
           <Key>
@@ -251,6 +306,18 @@
           <NavigationProperty Name="Students1" Relationship="Self.FK_Students_Students" FromRole="Students" ToRole="Students1" />
           <NavigationProperty Name="Student1" Relationship="Self.FK_Students_Students" FromRole="Students1" ToRole="Students" />
         </EntityType>
+        <Association Name="FK_Adress_Routes">
+          <End Role="Routes" Type="Self.Route" Multiplicity="0..1" />
+          <End Role="Adress" Type="Self.Adress" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Routes">
+              <PropertyRef Name="RouteId" />
+            </Principal>
+            <Dependent Role="Adress">
+              <PropertyRef Name="RouteId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="foradress">
           <End Role="Adress" Type="Self.Adress" Multiplicity="0..1" />
           <End Role="Donors" Type="Self.Donor" Multiplicity="*" />
@@ -299,6 +366,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Routes_Groups">
+          <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+          <End Role="Routes" Type="Self.Route" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Groups">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="Routes">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Students_Students">
           <End Role="Students" Type="Self.Student" Multiplicity="0..1" />
           <End Role="Students1" Type="Self.Student" Multiplicity="*" />
@@ -318,7 +397,12 @@
           <EntitySet Name="Donors" EntityType="Self.Donor" />
           <EntitySet Name="Groups" EntityType="Self.Group" />
           <EntitySet Name="Kind_Of_Contact" EntityType="Self.Kind_Of_Contact" />
+          <EntitySet Name="Routes" EntityType="Self.Route" />
           <EntitySet Name="Students" EntityType="Self.Student" />
+          <AssociationSet Name="FK_Adress_Routes" Association="Self.FK_Adress_Routes">
+            <End Role="Routes" EntitySet="Routes" />
+            <End Role="Adress" EntitySet="Adresses" />
+          </AssociationSet>
           <AssociationSet Name="foradress" Association="Self.foradress">
             <End Role="Adress" EntitySet="Adresses" />
             <End Role="Donors" EntitySet="Donors" />
@@ -334,6 +418,10 @@
           <AssociationSet Name="FK_Groups_Students" Association="Self.FK_Groups_Students">
             <End Role="Students" EntitySet="Students" />
             <End Role="Groups" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Routes_Groups" Association="Self.FK_Routes_Groups">
+            <End Role="Groups" EntitySet="Groups" />
+            <End Role="Routes" EntitySet="Routes" />
           </AssociationSet>
           <AssociationSet Name="FK_Students_Students" Association="Self.FK_Students_Students">
             <End Role="Students" EntitySet="Students" />
@@ -355,6 +443,7 @@
                 <ScalarProperty Name="NumBuilding" ColumnName="NumBuilding" />
                 <ScalarProperty Name="X" ColumnName="X" />
                 <ScalarProperty Name="Y" ColumnName="Y" />
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -408,6 +497,15 @@
                 <ScalarProperty Name="ContactId" ColumnName="ContactId" />
                 <ScalarProperty Name="ContactName" ColumnName="ContactName" />
                 <ScalarProperty Name="Priority" ColumnName="Priority" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Routes">
+            <EntityTypeMapping TypeName="newCaspotatdb3Model.Route">
+              <MappingFragment StoreEntitySet="Routes">
+                <ScalarProperty Name="RouteId" ColumnName="RouteId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="level" ColumnName="level" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

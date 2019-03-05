@@ -31,6 +31,7 @@ namespace Good_Luck
         public virtual DbSet<Donor> Donors { get; set; }
         public virtual DbSet<Group> Groups { get; set; }
         public virtual DbSet<Kind_Of_Contact> Kind_Of_Contact { get; set; }
+        public virtual DbSet<Route> Routes { get; set; }
         public virtual DbSet<Student> Students { get; set; }
     }
 }

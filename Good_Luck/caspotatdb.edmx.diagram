@@ -4,18 +4,21 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2d1da33745a64c998542b0bd13f4f661" Name="Diagram1">
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Adress" Width="1.5" PointX="3.75" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Contacts1" Width="1.5" PointX="6" PointY="5.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Donation" Width="1.5" PointX="7.5" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Donor" Width="1.5" PointX="5.25" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Group" Width="1.5" PointX="3" PointY="2.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Kind_Of_Contact" Width="1.5" PointX="7.625" PointY="5" IsExpanded="true" />
-        <EntityTypeShape EntityType="newCaspotatdb3Model.Student" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+      <Diagram DiagramId="dbc0eb0ee72741e0bcb3a0bfac89c395" Name="Diagram1">
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Adress" Width="1.5" PointX="7.625" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Contacts1" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Donation" Width="1.5" PointX="12" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Donor" Width="1.5" PointX="4.875" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Group" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Kind_Of_Contact" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Route" Width="1.5" PointX="5.25" PointY="5.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="newCaspotatdb3Model.Student" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="newCaspotatdb3Model.FK_Adress_Routes" ManuallyRouted="false" />
         <AssociationConnector Association="newCaspotatdb3Model.foradress" ManuallyRouted="false" />
         <AssociationConnector Association="newCaspotatdb3Model.FK_Donations_Donors" ManuallyRouted="false" />
         <AssociationConnector Association="newCaspotatdb3Model.forgroup" ManuallyRouted="false" />
         <AssociationConnector Association="newCaspotatdb3Model.FK_Groups_Students" ManuallyRouted="false" />
+        <AssociationConnector Association="newCaspotatdb3Model.FK_Routes_Groups" ManuallyRouted="false" />
         <AssociationConnector Association="newCaspotatdb3Model.FK_Students_Students" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>

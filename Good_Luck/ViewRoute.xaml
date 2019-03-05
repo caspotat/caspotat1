@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Good_Luck"
         mc:Ignorable="d"
-        Title="ViewRoute" Height="300" Width="300">
+        Title="הצגת מסלול" Height="300" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label FlowDirection="RightToLeft" x:Name="labelofgroup" Margin="49,10,39.6,230.4"></Label>
-        <ListBox FlowDirection="RightToLeft" x:Name="adresses" HorizontalAlignment="Left" Height="173" Margin="86,87,0,0" VerticalAlignment="Top" Width="124"/>
-        <Label FlowDirection="RightToLeft" Margin="91,49,99.6,194.4">רשימת כתובות</Label>
+        <Label FlowDirection="RightToLeft" x:Name="labelofgroup" Margin="49,10,39.6,221.4"></Label>
+        <ListBox FlowDirection="RightToLeft" x:Name="adresses" HorizontalAlignment="Left" Height="173" Margin="49,87,0,0" VerticalAlignment="Top" Width="196"/>
+        <Label FlowDirection="RightToLeft" Margin="91,49,99.6,183.4">רשימת כתובות</Label>
     </Grid>
 </Window>

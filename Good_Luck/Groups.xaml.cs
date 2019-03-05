@@ -1,5 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data;
+using System.Data.SqlClient;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -29,8 +33,16 @@ namespace Good_Luck
         private void loaddatagrid()
         {
 
-            var data = from r in db.Groups select r;
-            dg1.ItemsSource = data.ToList();
+            DataTable dt = new DataTable();
+            dt.Columns.Add("GroupId", typeof(int));
+            dt.Columns.Add("StudentName", typeof(string));
+            db.Groups.ToList().ForEach(v => dt.Rows.Add(Convert.ToInt32(v.GroupId), db.Students.Single(stu => stu.StudentId == v.StudentId).FirstName + " " + db.Students.Single(stu => stu.StudentId == v.StudentId).LastName));
+            dg1.ItemsSource = dt.DefaultView;
+
+
+
+            //var dataofgroups = from r in db.Groups select r;
+            //dg1.ItemsSource = dataofgroups.ToList();
 
         }
 

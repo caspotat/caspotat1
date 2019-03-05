@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Good_Luck"
         mc:Ignorable="d"
-        Title="ReadMails" Height="300" Width="300">
+        Title="ReadMails" Height="300" Width="300" WindowStartupLocation="CenterScreen">
     <Grid>
-        <TextBox x:Name="textbox1" HorizontalAlignment="Left" Height="16" Margin="85,27,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
-        <TextBox x:Name="textbox2" HorizontalAlignment="Left" Height="16" Margin="85,56,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="100"/>
+        <TextBox BorderBrush="Black" x:Name="textbox1" HorizontalAlignment="Left" Height="16" Margin="85,27,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
+        <TextBox BorderBrush="Black" x:Name="textbox2" HorizontalAlignment="Left" Height="16" Margin="85,56,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="100"/>
         <ListBox x:Name="listbox1" HorizontalAlignment="Left" Height="112" Margin="44,134,0,0" VerticalAlignment="Top" Width="175"/>
         <Button Click="GetAllMails" Content="getallmails" HorizontalAlignment="Left" Height="34" Margin="97,95,0,0" VerticalAlignment="Top" Width="67"/>
         <TextBlock HorizontalAlignment="Left" Height="16" Margin="10,26,0,0" TextWrapping="Wrap" Text="username" VerticalAlignment="Top" Width="58"/>

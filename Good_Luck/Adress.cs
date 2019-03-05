@@ -26,7 +26,9 @@ namespace Good_Luck
         public Nullable<short> NumBuilding { get; set; }
         public Nullable<double> X { get; set; }
         public Nullable<double> Y { get; set; }
+        public Nullable<decimal> RouteId { get; set; }
     
+        public virtual Route Route { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Donor> Donors { get; set; }
     }

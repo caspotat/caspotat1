@@ -47,7 +47,36 @@ namespace Good_Luck
         {
             Donor d = new Donor();
             if (namep.Text == "" || lastn.Text == "" || phone.Text == "" || groupId.Text == "" || level.Text == "")
-                MessageBox.Show("נא להכניס נתונים לכל השדות המסומנים בכוכבית");
+
+            {
+                if (namep.Text == "" || lastn.Text == "" || phone.Text == "" || groupId.Text == "" || level.Text == "")
+                    MessageBox.Show("נא להכניס נתונים לכל השדות המסומנים בכוכבית");
+                if (namep.Text.Any(char.IsDigit))
+                {
+                    MessageBox.Show("נא להכניס שם באותיות בלבד");
+                    namep.Text = "";
+                }
+                if (lastn.Text.Any(char.IsDigit))
+                {
+                    MessageBox.Show("נא להכניס שם באותיות בלבד");
+                    lastn.Text = "";
+                }
+                if (groupId.Text.Any(char.IsLetter))
+                {
+                    MessageBox.Show("נא להכניס ועד באות בלבד");
+                    groupId.Text = "";
+                }
+                if (level.Text.Any(char.IsLetter))
+                {
+                    MessageBox.Show("נא להכניס ועד באות בלבד");
+                    level.Text = "";
+                }
+                if (phone.Text.Any(char.IsLetter))
+                {
+                    MessageBox.Show("נא להכניס פלאפון בספרות בלבד");
+                    phone.Text = "";
+                }
+            }
             else
             {
                 d.FirstName = this.namep.Text;

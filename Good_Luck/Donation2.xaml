@@ -16,7 +16,8 @@
     <Grid>
         <DataGrid Name="dg1" AutoGenerateColumns="False" FlowDirection="RightToLeft">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding DonorId}" Header="תורם" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DonationId}" Header="קוד תרומה" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding DonorName}" Header="שם תורם" Width="100"></DataGridTextColumn>
                 <DataGridTextColumn Binding="{Binding Amount}" Header="סכום" Width="100"></DataGridTextColumn>
             </DataGrid.Columns>
 

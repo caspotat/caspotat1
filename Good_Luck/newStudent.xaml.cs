@@ -29,8 +29,32 @@ namespace Good_Luck
         private void ok_Click(object sender, RoutedEventArgs e)
         {
             Student d = new Student();
-            if (namep.Text == "" || lastn.Text == "" || Class.Text == "")
-                MessageBox.Show("נא להכניס נתונים לכל השדות המסומנים בכוכבית");
+            if (namep.Text == "" || lastn.Text == "" || Class.Text == "" || namep.Text.Any(char.IsDigit) || lastn.Text.Any(char.IsDigit) || Class.Text.Any(char.IsDigit) || phone.Text.Any(char.IsLetter))
+
+            {
+                if (namep.Text == "" || lastn.Text == "" || Class.Text == "")
+                    MessageBox.Show("נא להכניס נתונים לכל השדות המסומנים בכוכבית");
+                if (namep.Text.Any(char.IsDigit))
+                {
+                    MessageBox.Show("נא להכניס שם באותיות בלבד");
+                    namep.Text = "";
+                }
+                if (lastn.Text.Any(char.IsDigit))
+                {
+                    MessageBox.Show("נא להכניס שם באותיות בלבד");
+                    lastn.Text = "";
+                }
+                if (Class.Text.Any(char.IsDigit))
+                {
+                    MessageBox.Show("נא להכניס ועד באות בלבד");
+                    Class.Text = "";
+                }
+                if (phone.Text.Any(char.IsLetter))
+                {
+                    MessageBox.Show("נא להכניס פלאפון בספרות בלבד");
+                    phone.Text = "";
+                }
+            }
             else
             {
 

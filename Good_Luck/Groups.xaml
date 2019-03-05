@@ -16,8 +16,9 @@
     <Grid>
         <DataGrid Name="dg1" AutoGenerateColumns="False" MouseDoubleClick="dg1_MouseDoubleClick">
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding GroupId}" Header="קוד קבוצה" Width="100"></DataGridTextColumn>
-                <DataGridTextColumn Binding="{Binding StudentId}" Header="ראש קבוצה" Width="100"></DataGridTextColumn>
+                <DataGridTextColumn Binding="{Binding GroupId}" Header="קוד קבוצה" Width="*">
+                    </DataGridTextColumn>
+                    <DataGridTextColumn Binding="{Binding StudentName}" Header="ראש קבוצה" Width="*"></DataGridTextColumn> 
             </DataGrid.Columns>
         </DataGrid>
         <Button Width="73" Style="{StaticResource forButtons}" Height="30" HorizontalAlignment="Right" Margin="0,198,201.6,42.4" Click="Delete_Click">מחיקה</Button>
